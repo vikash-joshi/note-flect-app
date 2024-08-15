@@ -17,13 +17,13 @@ app.use(bodyParser.json());
 // Server-side code (example in Express.js)
 // Server-side code (example in Express.js)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://noteflect.netlify.app/',
   credentials: true // Allow credentials to be sent with requests
 }));
 
 
 app.use(express.json())
-StartTask(); 
+//StartTask(); 
 //startCronJobs();
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
