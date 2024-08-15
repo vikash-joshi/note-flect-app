@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 // Server-side code (example in Express.js)
 app.use(cors({
   origin: 'https://noteflect.netlify.app/',
-  credentials: true // Allow credentials to be sent with requests
+ methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // If your frontend needs to send cookies or authorization headers
+  optionsSuccessStatus: 200,
 }));
 
 
