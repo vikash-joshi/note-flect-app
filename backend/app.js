@@ -7,7 +7,7 @@ const port = process.env.PORT
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser')
-const ConnectMongoose=require('./db/db')
+const {run }=require('./db/db')
 //const { StartTask } =require('./common/custoncron')
 //const { startCronJobs } = require('./common/cronjobs');
 
@@ -51,6 +51,8 @@ app.use('/api/Admin', require('./routes/admin'));
 
 
 app.listen(port, async () => {
-  await ConnectMongoose();
+  await run().catch(ex=>{
+    console.log(ex);
+  });
   console.log(`Example app listening on port ${port}`)
 })
