@@ -7,7 +7,7 @@ const {
     body,
     validationResult
 } = require("express-validator");
-var { GeneratePassword }= require("../common/password");
+const {  GeneratePassword } = require("../common/password");
 
 
 router.post(
@@ -73,8 +73,8 @@ router.post(
                 newUser.save().then(
                     (result) => {
                         res.status(201).json({message:'1:Registration Success'});
-                    },
-                    (err) => {
+                    }).catch(err => {
+                        console.log('error',err)
                         if (err.code === 11000) {
                             // Duplicate key error
                             console.log(Object.keys(err.keyPattern));

@@ -52,8 +52,19 @@ module.exports={ run}
 */
 require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
+const mongoose=require('mongoose');
 const url = process.env.Mongoose_URI;
+
+mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: {
+      version: '1',  // MongoDB Stable API Version 1 (introduced in MongoDB 5.0+)
+      strict: true,
+      deprecationErrors: false
+    },
+    serverSelectionTimeoutMS: 30000,  // Wait up to 30 seconds for server selection
+  });
 
 if (!url) {
   console.error("MongoDB URI is not set. Check your .env file.");
@@ -64,19 +75,59 @@ if (!url) {
 const client = new MongoClient(url, {
   serverApi: {
     version: ServerApiVersion.v1,
-    strict: true,
+    strict: false,
     deprecationErrors: true,
   },
   serverSelectionTimeoutMS: 30000,  // Increase timeout to 30 seconds
 });
+async function connectdb(){
+    try {
+        // Connect the client to the server
+        await client.connect();
+        
+        // Send a ping to confirm a successful connection
+        await client.db("NoteFlect").command({ ping: 1 });
+        
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+      } catch (error) {
+        console.error("Failed to connect to MongoDB", error);
+      } finally {
+        // Ensure that the client will close when finished/error
+      //  await client.close();
+      }   
+}
 
+async function CloseConnection() {
+    try {
+        // Connect the client to the server
+        await client.connect();
+        
+        // Send a ping to confirm a successful connection
+        await client.db("NoteFlect").command({ ping: 1 });
+
+        mongoose.connection.once('open', () => {
+            console.log('Connected to MongoDB successfully');
+          });
+        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+      } catch (error) {
+        console.error("Failed to connect to MongoDB", error);
+      } finally {
+        // Ensure that the client will close when finished/error
+        await client.close();
+      }
+}
 async function run() {
   try {
     // Connect the client to the server
     await client.connect();
     
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
+    await client.db("NoteFlect").command({ ping: 1 });
+
+    mongoose.connection.once('open', () => {
+        console.log('Connected to MongoDB successfully');
+      });
+
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } catch (error) {
     console.error("Failed to connect to MongoDB", error);
@@ -84,6 +135,18 @@ async function run() {
     // Ensure that the client will close when finished/error
     await client.close();
   }
+}
+
+async function name(params) {
+    try{
+        mongoose.connection.once('open', () => {
+            console.log('Connected to MongoDB successfully');
+          });
+    }
+    catch(ex)
+    {
+
+    }
 }
 
 module.exports = { run };
