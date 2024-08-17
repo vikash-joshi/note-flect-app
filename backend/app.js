@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 // Server-side code (example in Express.js)
 
 // Define allowed origins
-const allowedOrigins = [ 'https://noteflect.netlify.app','http://localhost:3000'] 
+const allowedOrigins = [ 'https://noteflect.netlify.app'] 
 
 const corsOptions = {
   origin: function (origin, callback) {
