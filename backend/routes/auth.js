@@ -91,7 +91,7 @@ router.post(
 
               res.cookie("token", token, {
                 httpOnly: true,
-                secure: false,
+                secure: true,
                 sameSite: "Strict",
                 maxAge: 100000 * 60 * 1
               }); // Set secure: true in production
