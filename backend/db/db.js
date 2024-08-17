@@ -30,7 +30,6 @@ const client = new MongoClient(url, {
     deprecationErrors: true,
   },
   serverSelectionTimeoutMS: 30000,  // Increase timeout to 30 seconds
-
 });
 
 async function run() {
