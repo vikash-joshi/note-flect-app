@@ -7,7 +7,7 @@ const {
     body,
     validationResult
 } = require("express-validator");
-var GeneratePassword = require("../common/password");
+var { GeneratePassword }= require("../common/password");
 
 
 router.post(

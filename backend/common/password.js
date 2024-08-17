@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-const GeneratePassword = async function GeneratePassword(PassObject){
+const GeneratePassword = async (PassObject)=>{
     try{
     let Salt=await bcrypt.genSalt(5);
     let HashPassword=await bcrypt.hash(PassObject.Password,Salt);
@@ -14,7 +14,7 @@ const GeneratePassword = async function GeneratePassword(PassObject){
 }
 
 
-const RandomPassword=async function RandomPassword(length){
+const RandomPassword=async (length)=>{
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
   let result = ' ';
     const charactersLength = characters.length;

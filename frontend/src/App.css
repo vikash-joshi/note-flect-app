@@ -39,8 +39,17 @@ font-family: Helvetica Now MT Text, Helvetica, Arial, sans-serif;
 }
 
 @media (max-width: 768px) {
+
+  .right-panel{
+    margin-top:5px;
+  }
+
+  .mobile-width-padding{
+    padding:21px
+  }
   .container {
       flex-direction: column;
+      padding: 2px;
   }
   .resigters{
     padding:10px;

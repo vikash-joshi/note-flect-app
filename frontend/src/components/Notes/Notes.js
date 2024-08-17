@@ -255,7 +255,7 @@ export default function Notes() {
       </div>
       <div className="container">        
         {!Form_Or_List && (
-          <div className="row mt-4">
+          <div className="row mt-4 mobile-width-padding">
             <div className="col-md-12 d-flex justify-content-end mb-3">
               <button
                 className="active align-item-center bg-primary btn d-flex justify-content-center"
@@ -465,7 +465,7 @@ export default function Notes() {
           </div>
         )}
         {Form_Or_List && (
-          <div className="row mt-4">
+          <div className="row mt-4 mobile-width-padding">
             <div className="col-md-12 formheader">
               <p style={{ marginTop: "5px", color: "white" }}>
                 Add / Update Note
