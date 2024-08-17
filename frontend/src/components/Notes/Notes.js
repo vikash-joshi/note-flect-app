@@ -1,14 +1,15 @@
 import React, { useEffect, useState,useContext } from "react";
 import ToastComponent from "../common/controls/newtoast";
-import { FetchAllNotes, FetchCategory, FetchNotesByCategory, RemoveNote, SaveNotes } from "./notes_methods";
+import { FetchAllNotes, FetchNotesByCategory, RemoveNote, SaveNotes } from "./notes_methods";
 import { formatDistanceToNow } from "date-fns";
 import "./Notes.css";
 import { useNavigate } from "react-router-dom";
 import CustomTinyMCEEditor from "../common/controls/quill-editor/quill-editor";
 import _authContext from "../../context/authContext";
 
-
 export default function Notes() {
+
+
   const [editorHtml, setEditorHtml] = useState('');
  const { isAuthenticated,logout } = useContext(_authContext);
 
@@ -37,7 +38,11 @@ export default function Notes() {
 
 
   const handleEditorChange=(value)=>{
-    handleChange('content',value);
+    SetNotesModel((prev) => ({
+      ...prev,
+      content: value
+    }));
+    //handleChange('content',value);
   }
 
 
@@ -167,10 +172,11 @@ export default function Notes() {
   
 
   const handleChange = (field, value) => {
+    let NoteModel=NotesModel;
     SetNotesModel({
-      title: field == "title" ? value : NotesModel.title,
-      category: field == "category" ? value : NotesModel.category,
-      content: field == "content" ? value : NotesModel.content
+      title: field == "title" ? value : NoteModel.title,
+      category: field == "category" ? value : NoteModel.category,
+      content: field == "content" ? value : NoteModel.content
     });
   };
   const HandleHideShow = () => {

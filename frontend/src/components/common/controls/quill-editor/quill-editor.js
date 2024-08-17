@@ -52,7 +52,7 @@ const CustomTinyMCEEditor = ({ onEditorChange }) => {
 
   return (
     <Editor
-      apiKey='54gnpttiqcpxauq7f5m7e306osmh1v3m08hpezcy2q4fxxx2'
+      apiKey='yay93jx85q2oykpyxs92v2d6yeu3cfik1nofxz90nu5bv8u5'
       onInit={(evt, editor) => {
         editorRef.current = editor;
         editor.ui.registry.addButton('voiceToText', {
@@ -92,7 +92,7 @@ const CustomTinyMCEEditor = ({ onEditorChange }) => {
           },
         });
       }}
-      initialValue="<p>This is the initial content of the editor.</p>"
+      initialValue="<p></p>"
       init={{
         height: 250,
         menubar: false,

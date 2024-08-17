@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ToastComponent from "../common/controls/newtoast";
+import FullScreenSpinner from "../common/spinner/spinners";
 
 export default function Register() {
   const [EyeIcon, SetEyeIcon] = useState("visibility");
@@ -9,7 +10,7 @@ export default function Register() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Gender, handleSelectChange] = useState("1");
-
+  const [ShowLoading,SetLoading]=useState(false);
   const handleForm = (field, value, call) => {
     return validate(field, value);
   };
@@ -66,6 +67,7 @@ export default function Register() {
 
   const RegisterUser = async (name, email, password, gender) => {
     try {
+      SetLoading(true)
       const response = await fetch("http://localhost:3001/api/Users/create", {
         method: "POST",
         headers: {
@@ -81,12 +83,14 @@ export default function Register() {
           UserType:'user'
         })
       });
+      SetLoading(false)
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
       const json = await response.json();
       return json;
     } catch (error) {
+      SetLoading(false)
       console.error(error.message);
     }
   };
@@ -152,6 +156,7 @@ export default function Register() {
 
   return (
     <div style={{ backgroundColor: "white", height: "auto" }}>
+        {ShowLoading && <FullScreenSpinner />} 
          <div
         className="position-fixed top-2 end-0 p-3"
         style={{ zIndex: 11, marginTop: "-55px" }}

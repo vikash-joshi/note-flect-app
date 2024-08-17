@@ -3,9 +3,11 @@ import { Link,useNavigate }  from "react-router-dom";
 import _authContext   from "../../context/authContext";
 import axios from 'axios';
 import ToastComponent from "../common/controls/newtoast";
+import FullScreenSpinner from "../common/spinner/spinners";
 
 export default function Login() {
   const { login } = useContext(_authContext);
+  const [ShowLoading,SetLoading]=useState(false);
   const navigate = useNavigate();
   const [EyeIcon,SetEyeIcon]=useState('visibility')
   const [Email,setEmail]=useState('')
@@ -19,6 +21,24 @@ export default function Login() {
 
   const LoginUser = async (email, password) => {
     try{
+      SetLoading(true)
+
+      if(!email || email==='')
+      {
+        SetLoading(false)
+        SetMessage({ message: 'Email Required', type: "text-danger" });
+        handleShowToast();
+        return;
+      }
+      if(!password || password==='')
+        {
+          SetLoading(false)
+          SetMessage({ message: 'Password Required', type: "text-danger" });
+          handleShowToast();
+          return;
+        }
+
+        SetLoading(true)
     const response = await axios.post('http://localhost:3001/api/auth/VerifyUser', {
       email: email,
           password: password
@@ -26,7 +46,7 @@ export default function Login() {
       withCredentials: true, // Ensure cookies are included
     });
     const result= response;
-    
+    SetLoading(false)
     if(result && result.data && result?.data?.message && result?.data?.message!='')
     {
       SetMessage({ message: result?.data?.message, type: "text-danger" });
@@ -39,13 +59,14 @@ export default function Login() {
   }
   catch(ex)
   {
-
+    SetLoading(false)
   }
   };
   
   const FetchRequtes=async()=>{
     try {
       debugger;
+      SetLoading(true)
       const response = await fetch('http://localhost:3001/api/auth/verifytoken', {
         method: "GET",credentials:'include',
          headers: {
@@ -57,9 +78,11 @@ export default function Login() {
         throw new Error(`Response status: ${response.status}`);
       }
       const json = await response.json();
+      SetLoading(true)
       login();
       return json;
     } catch (error) {
+      SetLoading(true)
       console.error(error.message);
     }
   }
@@ -95,6 +118,7 @@ export default function Login() {
 
   return (
     <div style={{ backgroundColor: "white", height: "auto" }}>
+       {ShowLoading && <FullScreenSpinner />} 
          <div
         className="position-fixed top-2 end-0 p-3"
         style={{ zIndex: 11, marginTop: "-55px" }}
