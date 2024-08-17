@@ -89,12 +89,14 @@ router.post(
                 process.env.JWT_Value
               );
 
-              res.cookie("token", token, {
+              res.cookgitie("token", token, {
                 httpOnly: true,
                 secure: true,
                 sameSite: "none",
                 maxAge: 100000 * 60 * 1
-              }); // Set secure: true in production
+              }); 
+              //ok
+              // Set secure: true in production
 
               res.status(200).json({ success: true });
             }
