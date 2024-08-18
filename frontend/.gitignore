@@ -1,3 +1,94 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Node.js dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Build output
+/dist
+/build
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Environment variables
 .env
-node_modules
-build
+.env.local
+.env.*.local
+
+# npm package lock file
+package-lock.json
+
+# macOS
+*.DS_Store
+
+# Windows
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# Ruby
+*.gem
+*.rbc
+.bundle/
+log/
+tmp/
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Sensitive files
+secrets.yml
+config/secrets.yml
+
+# Custom build files
+*.class
+*.jar
+
+# Miscellaneous
+*.pid
+*.seed
+*.coverage
+*.hypothesis/
+*.tox/
+*.coverage
+*.nib
+*.bak
+*.old
+*.orig
