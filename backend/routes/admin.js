@@ -1,6 +1,7 @@
 var express = require("express");
 const mongoose = require("mongoose");
 const Users = require("../models/User");
+const {Request} = require("../models/Request");
 const EmailLog = require("../models/EmailLog");
 
 var router = express.Router();
@@ -12,7 +13,7 @@ const { SaveEmailLog, GetEmailLogs } = require("../common/MailMethods");
 
 router.get("/getUsers", authenticateToken, async (req, res) => {
   try {
-    const _user = await Users.find(
+   const _user = await Users.find(
       {},
       {
         name: 1,
@@ -332,6 +333,8 @@ router.post(
       }
   }
 );
+
+//Request Methods
 
 
 module.exports = router;

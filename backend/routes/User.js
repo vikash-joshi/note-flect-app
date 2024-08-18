@@ -201,7 +201,6 @@ router.post(
                         email: email,
                         gender: Gender,
                         UserBio: UserBio,
-                        phoneNumber: phoneNumber,
                     });
 
                     console.log(_userexist[0].email);

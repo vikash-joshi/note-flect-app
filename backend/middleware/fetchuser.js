@@ -1,9 +1,6 @@
 const jwt = require("jsonwebtoken");
 
 const authenticateToken=async (req, res, next) => {
- // console.clear();
-  //console.log('authenticate')
-  //console.log(req)
     const token = process.env.JWT_Value;
     try {
       jwt.verify(req.cookies.token, token, (err, decoded) => {
@@ -17,6 +14,7 @@ const authenticateToken=async (req, res, next) => {
           else{
           
           req.body.UserId=decoded?.id;
+          req.body._UserType=decoded?.UserType;
           console.log(req.body.UserId)
           next();
           }
