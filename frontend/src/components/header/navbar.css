@@ -11,6 +11,11 @@
     font-weight: 900;
     color: #178fff;
 }
+
+.navbar-brand:focus, .navbar-brand:hover{
+    font-weight: 500;
+    color: #178fff !important;
+}
 .nav_name{
 
     font-weight: 500;

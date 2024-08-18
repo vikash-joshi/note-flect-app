@@ -80,7 +80,7 @@ export default function EmailLog() {
   };
   return (
     <>
-    <div className="container">
+    <div className="container mt-3">
       <div className="row ">
             <div className="col-md-9">
               <p style={{ fontWeight: 'bold', fontSize: '20px' }}>

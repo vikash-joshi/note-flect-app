@@ -201,7 +201,7 @@ export default function Register() {
               </div>
             </div>
           </div>
-          <div className="col-md-6 bg-white right-panel" style={{height:'450px'}}>
+          <div className="col-md-6 bg-white right-panel" style={{minHeight:'450px'}}>
             <div style={{ padding: "30px" }}>
               <div>
                 <h3 className="text-center">Register</h3>
@@ -215,7 +215,8 @@ export default function Register() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: " center"
+                    justifyContent: " center",
+                    width:'100%'
                   }}
                 >
                   <div className="form-group row mb-1 ">

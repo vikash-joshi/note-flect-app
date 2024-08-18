@@ -40,6 +40,9 @@ font-family: Helvetica Now MT Text, Helvetica, Arial, sans-serif;
 
 @media (max-width: 768px) {
 
+  .homecontent{
+    padding: 25px;
+  }
   .right-panel{
     margin-top:5px;
   }
@@ -52,7 +55,7 @@ font-family: Helvetica Now MT Text, Helvetica, Arial, sans-serif;
   }
   .container {
       flex-direction: column;
-      padding: 2px;
+      padding: 25px;
   }
   .resigters{
     padding:10px;
