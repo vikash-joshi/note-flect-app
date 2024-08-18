@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import Users from "./users";
+import Users from "../users";
 
+function CreateUser()
+{
+  return (
+    <>
+    
+    </>
+  )
+}
 
 export default function ManageUsers() {
   return (

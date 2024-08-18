@@ -59,4 +59,22 @@
       left: 100%;
     }
   }
+
+
+  .rotate{
+    transform-origin: center;
+    animation: rotate 2s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
   

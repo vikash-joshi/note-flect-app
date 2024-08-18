@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ToastComponent from "../common/controls/newtoast";
+import ToastComponent from "../../common/controls/newtoast";
 import { SendMailLog } from "./admin_methods";
 
 
@@ -92,7 +92,8 @@ export default function SendMail({ User, onEvent }) {
     }
   };
 
-  const HandleSubmit = async (UserModel) => {
+  const HandleSubmit = async (event,UserModel) => {
+    event.preventDefault();
     if (UserModel) {
       if (!(UserModel?.FromEmail && UserModel?.FromEmail != "")) {
         SetMessage({
@@ -158,11 +159,21 @@ export default function SendMail({ User, onEvent }) {
         />
       </div>
 
-      <div className="container" style={{ width: "60%" }}>
-        <div className="form-body" style={{ backgroundColor: "#0090fe26" }}>
+      <div className="container">
+      <div className="row mb-3">
+          <div className="col-md-2"></div>
+          <div
+            className="col-md-8"
+            style={{
+              backgroundColor: "#3b82f6e8",
+              borderRadius: "15px",
+              color: "white"
+            }}
+          >
+        <div className="form-body">
           <h3 className="text-center pt-3">Send Mail</h3>
-          <form style={{ padding: "0px !important" }}>
-            <div className="col-12 col-md-10">
+          <form style={{ padding: "10px !important" }}>
+            <div className="col-12 col-md-12">
               <div class="form-group d-block">
                 <label htmlFor="exampleInputEmail1">From Email</label>
                 <input
@@ -172,7 +183,7 @@ export default function SendMail({ User, onEvent }) {
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter Fromemail"
+                  placeholder="Enter From Mail"
                 />
               </div>
               <div class="form-group d-block">
@@ -184,7 +195,7 @@ export default function SendMail({ User, onEvent }) {
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter Toemail"
+                  placeholder="Enter To Mail"
                 />
               </div>
               <div class="form-group d-block">
@@ -212,16 +223,29 @@ export default function SendMail({ User, onEvent }) {
                   rows="3"
                 ></textarea>
               </div>
+              <div className="d-flex">
+              
+
               <button
-                onClick={() => HandleSubmit(SendMailModel)}
+                onClick={(e) => HandleSubmit(e,SendMailModel)}
                 type="button"
-                class="btn btn-primary d-flex align-items-center"
+                class="btn bg-white text-primary"
               >
-                Send&nbsp;<span class="material-symbols-outlined">send</span>
+                Send
+              </button>&nbsp;&nbsp; <button
+                onClick={sendValueToParent}
+                type="button"
+                class="btn bg-white text-primary"
+              >Go Back
               </button>
+              
+             
+              </div>
+
             </div>
           </form>
         </div>
+        </div></div>
       </div>
     </>
   );

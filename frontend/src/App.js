@@ -10,8 +10,10 @@ import {AuthProvider } from "./context/authContext";
 import Profile from './components/Users/profile';
 import Notes from './components/Notes/Notes';
 import Dashboard from './components/dashboard/dashboard';
-import ManageUsers from './components/admin/Manageuser';
+import ManageUsers from './components/admin/Manage/Manageuser';
 import RaiseTicket from './components/ticket/Ticket';
+import NewManageUsers from './components/admin/Manage/NewManageUsers';
+import EmailLog from './components/admin/Manage/ManageEmailLog';
 
 const App = () => (
 
@@ -29,7 +31,8 @@ const App = () => (
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Notes" element={<Notes />} />
           <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/ManageUsers" element={<ManageUsers />} />
+          <Route path="/ManageUsers" element={<NewManageUsers />} />
+          <Route path="/EmailLog" element={<EmailLog />} />
           <Route path="/RaiseTicket" element={<RaiseTicket />} />
           
           

@@ -138,7 +138,7 @@ export default function Login() {
         <div className="row">
           <div
             className="col-md-6 left-panel text-white"
-            style={{ backgroundColor: "#0052c0" }}
+            style={{ backgroundColor: "#178fff" }}
           >
             <div className="m-5 resigters" style={{padding:'50px'}}>
               <div>
@@ -155,7 +155,7 @@ export default function Login() {
                 <button
                   type="submit"
                   style={{ width: "100%", borderRadius: '30px' }}
-                  className="btn btn-primary"
+                  className="btn btn-light text-primary"
                 >
                   Sign Up
                   
@@ -177,7 +177,8 @@ export default function Login() {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: " center"
+                    justifyContent: " center",
+                    width:'100%'
                   }}
                 >
                   <div className="form-group row mb-2">
@@ -185,7 +186,7 @@ export default function Login() {
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{    color: '#0d6efd',   fontSize: '31px'}}>
+                      <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 mail
 </span>
                     </label>
@@ -206,7 +207,7 @@ mail
                       htmlFor="inputPassword3"
                       className="col-sm-2 col-form-label"
                     >
-       <span class="material-symbols-outlined" style={{    color: '#0d6efd',   fontSize: '31px'}}>
+       <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 lock
 </span>
                     </label>

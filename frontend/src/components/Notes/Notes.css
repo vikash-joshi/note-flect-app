@@ -39,23 +39,28 @@
     border-radius: 4px;
     margin-bottom: 10px;
 }
+.right-panel_noRec{
+   
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
 
 .FormPanel{
     background: aliceblue;
 }
 .formheader{
-    background: #0d6efd !important;
+    background: #178fff !important;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 .noteactive
 {
     background-color: #d0e7ff; /* Light blue background on hover */
-    color: #0056b3; /* Darker blue text on hover */
+    color: #178fff; /* Darker blue text on hover */
 }
 
 .cardheader{
-    background: white;color: #0d6efd;border: none !important;
+    background: white;color: #178fff;border: none !important;
 }
 
 .card-body{

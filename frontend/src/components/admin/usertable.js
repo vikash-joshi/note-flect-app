@@ -1,6 +1,6 @@
 import React from 'react';
-import './admin.css';
-import "./sendmail.css"
+//import './Manage/admin.css';
+//import "./Manage/sendMail.css"
 import { formatDistanceToNow } from "date-fns";
 export default function TableUsers ({UserList, onEvent }) {
 

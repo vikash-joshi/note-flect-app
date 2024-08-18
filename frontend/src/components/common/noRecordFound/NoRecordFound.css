@@ -1,0 +1,47 @@
+
+.no-record-card {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #dbeafe7a;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.no-record-icon {
+    font-size: 48px;
+    color: #888;
+    margin-right: 20px;
+}
+
+.no-record-content h2 {
+    font-size: 24px;
+    color:#178fff;
+}
+
+.no-record-content p {
+    font-size: 16px;
+    color:#178fff !important;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .no-record-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .no-record-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .no-record-content h2 {
+        font-size: 22px;
+    }
+}

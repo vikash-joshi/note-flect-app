@@ -85,14 +85,21 @@ export default function Profile() {
       console.error(error.message);
     }
   };
-
+  
   return (
-    <div className="container">
-        <div className="row">
-            <div className="col-md-3"></div>
-            <div className="col-md-6"><div className="registration-form">
-      <div className="profile-picture">
-        <img src="https://as1.ftcdn.net/v2/jpg/07/49/75/12/1000_F_749751249_V2nKiTNbk1F0Y91WIAXeqsDX61RuVrkF.jpg" alt="Profile" />
+    <div className="container mt-4">
+        <div className="row mt-5" >
+        <div className="col-md-2"></div>
+         <div className="col-md-3 leftpanel" style={{boxShadow:'0 0 20px rgba(0, 0, 0, 0.1)'}}>
+              <div className="imagecontainer">
+                <img style={{width:'100%'}} src="https://cdni.iconscout.com/illustration/premium/thumb/edit-social-media-profile-5295893-4412910.png" />
+              </div>
+             </div>
+            <div className="col-md-5" style={{boxShadow:'0 0 20px rgba(0, 0, 0, 0.1)'}}><div className="registration-form">
+      <div className="profile-pictures">
+      <h3 className="text-center mt-2">
+        Edit Profile
+      </h3>
       </div>
       <form>
       <div className="form-group">
@@ -112,16 +119,14 @@ export default function Profile() {
                         <option value="3">Other's</option>
                       </select>
         </div>
-        <div className="form-group">
-          <input type="text" placeholder="Phone Number" value={user.phoneNumber} />
-        </div>
+       
         <div className="form-group">
         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="User Bio" rows="3" value={user.UserBio}></textarea>
         </div>
         <button type="submit" className="submit-btn">Update Profile</button>
       </form>
     </div></div>
-            <div className="col-md-3"></div>
+            <div className="col-md-2"></div>
         </div>
      
     </div>

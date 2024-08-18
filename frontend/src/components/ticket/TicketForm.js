@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ToastComponent from "../common/controls/newtoast";
-import { CreateUser } from "./Manage/admin_methods";
+import { CreateUser } from "./admin_methods";
 
-export default function CreateUsers({ User, onEvent }) {
+export default function CreateTicket({ User, onEvent }) {
   const [IsEmailVerified, SetEmailVerified] = useState(false);
   const [IsAccountLocked, SetIsAccountLocked] = useState(false);
   const [Message, SetMessage] = useState({ message: "", type: "" });

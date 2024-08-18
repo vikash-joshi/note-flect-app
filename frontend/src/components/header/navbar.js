@@ -10,9 +10,8 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-white static-top">
       <div className="container navbar_responsive">
-        <a className="navbar-brand" href="/">
-          <img src="../../assets/images/NoteFlect2.png" alt="..." height="36" />
-        </a>
+          <a class="navbar-brand nav_name" href="/"><span class="material-symbols-outlined brand_logo">eco</span>NOTEFLECT</a>
+    
         <button
           className="navbar-toggler"
           type="button"

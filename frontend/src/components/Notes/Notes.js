@@ -6,6 +6,7 @@ import "./Notes.css";
 import { useNavigate } from "react-router-dom";
 import CustomTinyMCEEditor from "../common/controls/quill-editor/quill-editor";
 import _authContext from "../../context/authContext";
+import NoRecordFound from "../common/noRecordFound/norecordfound";
 
 export default function Notes() {
 
@@ -262,7 +263,8 @@ export default function Notes() {
       <div className="container">        
         {!Form_Or_List && (
           <div className="row mt-4 mobile-width-padding">
-            <div className="col-md-12 d-flex justify-content-end mb-3">
+            <div className="col-md-10" style={{fontSize:'20px',fontWeight:'bold'}}>Notes Management</div>
+            <div className="col-md-2 d-flex justify-content-end mb-3">
               <button
                 className="active align-item-center bg-primary btn d-flex justify-content-center"
                 onClick={() => Handle_Edit_Delete("add", NotesModel)}
@@ -273,9 +275,10 @@ export default function Notes() {
                 <span className="text-white">Add Note </span>
               </button>
             </div>
-            <div className="col-md-3">
+            {CategoryList && CategoryList.length > 0 &&
+            <>  <div className={ShowNoRecord ? '': 'col-md-3'}>
               <ul className="list-group">
-                {CategoryList && CategoryList.length > 0 && (
+                (
                   <li
                     id="mainid0"
                     className={activeIndex === 'mainid0' ? ' list-group-item d-flex justify-content-between align-items-center noteactive ' : 'list-group-item d-flex justify-content-between align-items-center'}
@@ -283,8 +286,7 @@ export default function Notes() {
                   >
                     All
                   </li>
-                )}
-                {CategoryList &&
+                  {CategoryList &&
                   CategoryList.length > 0 &&
                   CategoryList.map((item,index) => (
                     <li onClick={()=>HandleCategoryClick(item._id,'mainid'+index+1)}
@@ -294,9 +296,13 @@ export default function Notes() {
                       {item?.name} <span className="badge bg-info">{item?.noteCount}</span>
                     </li>
                   ))}
-              </ul>
-            </div>
-            <div className="col-md-9 right-panel">
+                                </ul>
+                                </div>
+                  </>
+                }
+                
+
+            <div className={ShowNoRecord ? 'col-md-12 right-panel_noRec':'col-md-9 right-panel'}>
               {ShowLoading == false && ShowNoRecord == false ? (
                 
                 <div className="row">
@@ -356,9 +362,7 @@ export default function Notes() {
                 ""
               )}
               {ShowNoRecord && (
-                <div className="norecord_note">
-                  <img src="https://formulatedpolymers.com/Product_fpl/images/norecord.png" />
-                </div>
+                <NoRecordFound /> 
               )}
 
               {ShowLoading && (

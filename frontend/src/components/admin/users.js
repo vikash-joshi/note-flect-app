@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { fetchallUsers, fetchEmailLogs } from "./admin_methods";
+import { fetchallUsers, fetchEmailLogs } from "./Manage/admin_methods";
 import _authContext from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
-import "./admin.css";
-import TableSkeletonLoader from "./table.skeleton";
+//import "./admin.css";
+import TableSkeletonLoader from "./Manage/table.skeleton";
 import TableUsers from "./usertable";
 import CreateUsers from "./createusers";
-import SendMail from "./sendMail";
+import SendMail from "./Manage/sendMail";
 import EmailLogs from "./emaillog";
 
 export default function Users() {
@@ -14,10 +14,10 @@ export default function Users() {
   const [User,SetUser]=useState({})
   const { isAuthenticated, logout } = useContext(_authContext);
   const [UserList, SetUserLists] = useState([]);
-  const [EmailList, SetEmailList] = useState([]);
+  const [EmailList, SetEmailList] = useState([]); 
   
   const [Loading, SetLoading] = useState(true);
-  const [Action,SetAction]=useState('')
+  const [Action,SetAction]=useState('grid')
   const [Grid_Form,setGridOrForm]=useState(true);
   const Hanlde_View_User_EmailLog=()=>{
     SetAction(Action == 'mail' ? 'grid':'mail');
@@ -131,7 +131,7 @@ SetEmailList(Res);
     <>
 
        <div className="row"> 
-        <div className="col-md-7" style={{    fontWeight:'bold'}}>{Grid_Form ? Action == 'mail' ? 'User Email Log' : 'User Management':'Add User'} </div>
+        <div className="col-md-7" style={{    fontWeight:'bold',fontSize:'20px'}}>{Grid_Form ? Action == 'mail' ? 'User Email Log' : 'User Management':'Add User'} </div>
         <div className="col-md-5 d-flex justify-content-end">
           {Grid_Form && <button style={{marginLeft:'10px'}}
             type="button"
@@ -140,6 +140,7 @@ SetEmailList(Res);
           >
             <span class="material-symbols-outlined">sync</span> Refresh
           </button> }
+          {(Grid_Form && Action === 'mail' ) || (Grid_Form && Action !== 'mail') &&
           <button style={{marginLeft:'10px'}}
             type="button" disabled={Loading}
             onClick={Hanlde_View_User_EmailLog}
@@ -147,6 +148,7 @@ SetEmailList(Res);
           >
             <span class="material-symbols-outlined">{Grid_Form ? 'list_alt' :'arrow_back'}</span>{Grid_Form && Action == 'mail' ? 'View Users': Grid_Form && Action !== 'mail' ? 'View Logs' : 'Back'}
           </button>
+          }
           <button style={{marginLeft:'10px'}}
             type="button" disabled={Loading}
             onClick={HanldeState}

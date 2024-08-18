@@ -30,6 +30,21 @@ const fetchEmailLogs=async()=>{
   }
 }
 
+const fetchRequestList=async()=>{
+  try {
+      const response = await fetch(`http://localhost:3001/api/User/GetRequestList`, {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      const json = await response.json();
+      return json;
+    } catch (err) {
+  return   { messsage:err.message}
+  }
+}
+
 
 
 const CreateUser=async(User,Methods)=>{

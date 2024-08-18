@@ -176,7 +176,7 @@ export default function Register() {
         <div className="row">
           <div
             className="col-md-6 left-panel text-white"
-            style={{ backgroundColor: "#0052c0" ,height:'450x'}}
+            style={{ backgroundColor: "#178fff" ,height:'450x'}}
           >
             <div className="m-5 resigters" style={{ padding: "50px" }}>
               <div>
@@ -193,7 +193,7 @@ export default function Register() {
                   <button
                     type="submit"
                     style={{ width: "100%", borderRadius: "30px" }}
-                    className="btn btn-primary"
+                    className="btn btn-light text-primary"
                   >
                     Sign In
                   </button>
@@ -220,10 +220,10 @@ export default function Register() {
                 >
                   <div className="form-group row mb-1 ">
                     <label
-                      htmlFor="inputEmail3"
+                      htmlFor="input3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{    color: '#0d6efd',    fontSize: '31px'}}>
+                      <span class="material-symbols-outlined" style={{    color: '#178fff',    fontSize: '31px'}}>
 person
 </span>
                     </label>
@@ -231,7 +231,7 @@ person
                       <input
                         type="text"
                         className="form-control"
-                        id="inputEmail3"
+                        id="input3"
                         placeholder="Name"
                         onInput={(e) => handleChange("name", e.target.value)}
                       />
@@ -252,7 +252,7 @@ person
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{     color: '#0d6efd',  fontSize: '31px'}}>
+                      <span class="material-symbols-outlined" style={{     color: '#178fff',  fontSize: '31px'}}>
 mail
 </span>
                     </label>
@@ -281,7 +281,7 @@ mail
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-      <span class="material-symbols-outlined" style={{    color: '#0d6efd',   fontSize: '31px'}}>
+      <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 wc
 </span>
                     </label>
@@ -304,7 +304,7 @@ wc
                       className="col-sm-2 col-form-label"
                       
                     >
-                      <span class="material-symbols-outlined" style={{     color: '#0d6efd',   fontSize: '31px'}}>
+                      <span class="material-symbols-outlined" style={{     color: '#178fff',   fontSize: '31px'}}>
 lock
 </span>
                     </label>
@@ -329,7 +329,7 @@ lock
                     <div className="col-sm-2"></div>
                     <div className="col-sm-10 mt-2">
                       {errors.email && (
-                        <p className="text-danger" style={{    color: '#0d6efd',fontSize: "10px" }}>
+                        <p className="text-danger" style={{    color: '#178fff',fontSize: "10px" }}>
                           {errors.password}
                         </p>
                       )}
