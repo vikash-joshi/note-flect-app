@@ -9,7 +9,7 @@ var bodyParser = require('body-parser')
 const {run }=require('./db/db')
 app.use(cookieParser());
 app.use(bodyParser.json());
-const allowedOrigins = [ 'https://noteflect.netlify.app','http://localhost:3000'] 
+const allowedOrigins = [ 'https://noteflect.netlify.app','http://localhost:3000','https://noteflect.onrender.com'] 
 
 const corsOptions = {
   origin: function (origin, callback) {
