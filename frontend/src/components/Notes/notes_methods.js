@@ -1,7 +1,7 @@
 const SaveNotes=async (Notes)=>{
     try {
         console.log(Notes)
-        const response = await fetch("http://localhost:3001/api/Notes/AddNote", {
+        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Notes/AddNote", {
           method: "POST",
           credentials: "include",
           headers: {
@@ -31,7 +31,7 @@ const SaveNotes=async (Notes)=>{
 const RemoveNote=async (Notes)=>{
   try {
       console.log(Notes)
-      const response = await fetch("http://localhost:3001/api/Notes/RemoveNote", {
+      const response = await fetch(process.env.REACT_APP_API_URL+"/api/Notes/RemoveNote", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -55,7 +55,7 @@ const RemoveNote=async (Notes)=>{
 
 const FetchCategory=async()=>{
     try {
-        const response = await fetch("http://localhost:3001/api/Notes/GetAllCategory", {
+        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Notes/GetAllCategory", {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }
@@ -73,7 +73,7 @@ const FetchCategory=async()=>{
 
 const FetchAllNotes=async(Page=1)=>{
     try {
-        const response = await fetch(`http://localhost:3001/api/Notes/GetAllNotesByUser?Page=${Page}`, {
+        const response = await fetch(process.env.REACT_APP_API_URL+`/api/Notes/GetAllNotesByUser?Page=${Page}`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }
@@ -92,7 +92,7 @@ const FetchAllNotes=async(Page=1)=>{
 
 const FetchNotesByCategory=async(Note,Page=1)=>{
     try {
-        const response = await fetch(`http://localhost:3001/api/Notes/GetAllNotesByCategory?Page=${Page}&category=${Note?.category}`, {
+        const response = await fetch(process.env.REACT_APP_API_URL+`/api/Notes/GetAllNotesByCategory?Page=${Page}&category=${Note?.category}`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

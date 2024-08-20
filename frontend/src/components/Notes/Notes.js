@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import CustomTinyMCEEditor from "../common/controls/quill-editor/quill-editor";
 import _authContext from "../../context/authContext";
 import NoRecordFound from "../common/noRecordFound/norecordfound";
+import FullScreenSpinner from "../common/spinner/spinners";
 
 export default function Notes() {
 
@@ -68,9 +69,11 @@ export default function Notes() {
   });
 
   const Handle_Edit_Delete = async(action, Data) => {
+    console.log('data',Data)
     setAction(action);
     SetNotesModel(Data);
     if (action !== "delete") {
+      handleEditorChange(NotesModel?.content);
       HandleHideShow();
     }
     else{
@@ -127,8 +130,11 @@ export default function Notes() {
 
   const HandleSave = async () => {
     console.log(NotesModel);
+    SetLoading(true);
     let Result = await SaveNotes(NotesModel);
+    SetLoading(false);
     if(Result && Result?.logout==true) {
+   
       logout();
     }
     else
@@ -214,7 +220,8 @@ export default function Notes() {
         SetLoading(false);
         SetNotesList(Response?.['Notes']);
         SetCategoryList(Response?.['Category']);
-        console.clear();console.log(Response?.['TotalCount'])
+        //console.clear();
+        console.log(Response?.['TotalCount'])
         SettotalRecord(Response?.['TotalCount']);
       }
     }
@@ -252,6 +259,7 @@ export default function Notes() {
         className="position-fixed top-2 end-0 p-3"
         style={{ zIndex: 11, marginTop: "-55px" }}
       >
+        {ShowLoading && <FullScreenSpinner />} 
         <ToastComponent
           show={showToast}
           onClose={handleCloseToast}
@@ -261,7 +269,7 @@ export default function Notes() {
         />
       </div>
       <div className="container">        
-        {!Form_Or_List && (
+        {(!Form_Or_List && 
           <div className="row mt-4 mobile-width-padding">
             <div className="col-md-10" style={{fontSize:'20px',fontWeight:'bold'}}>Notes Management</div>
             <div className="col-md-2 d-flex justify-content-end mb-3">
@@ -278,7 +286,7 @@ export default function Notes() {
             {CategoryList && CategoryList.length > 0 &&
             <>  <div className={ShowNoRecord ? '': 'col-md-3'}>
               <ul className="list-group">
-                (
+                
                   <li
                     id="mainid0"
                     className={activeIndex === 'mainid0' ? ' list-group-item d-flex justify-content-between align-items-center noteactive ' : 'list-group-item d-flex justify-content-between align-items-center'}
@@ -346,7 +354,7 @@ export default function Notes() {
                               
                             </div>
                             <div className="card-footers">
-                              <p className="card-title badge">
+                              <p className="card-title badge text-black">
                                 {formatDistanceToNow(note.createdAt, {
                                   addSuffix: true
                                 })}

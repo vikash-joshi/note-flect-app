@@ -2,7 +2,7 @@ export const GetUserDetail=async()=>{
     let json ={}
     try {
         debugger;
-        const response = await fetch('http://localhost:3001/api/auth/verifytoken', {
+        const response = await fetch(process.env.REACT_APP_API_URL+'/api/auth/verifytoken', {
           method: "GET",
           credentials:'include',
           headers: {

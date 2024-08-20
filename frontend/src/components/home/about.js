@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./about.css"
 export default function About() {
   return (
     <>
@@ -41,12 +41,12 @@ Empower Your Growth with Every Note.</p>
         <h2 class="fw-bold mb-4">Features</h2>
         <div class="row justify-content-center">
           <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card shadow-sm p-3">
+            <div class="card_ shadow-sm p-3">
               <div class="circle-icon bg-dark mx-auto mb-3 d-flex justify-content-center align-items-center "><span class="about_us_icon material-symbols-outlined">
                 checklist
               </span></div>
-              <h4 class="card-title">Organized Notes</h4>
-              <p class="card-text">Create and manage categories to keep your notes structured.</p>
+              <h4 class="card_-title">Organized Notes</h4>
+              <p class="card_-text">Create and manage categories to keep your notes structured.</p>
 
             </div>
           </div>

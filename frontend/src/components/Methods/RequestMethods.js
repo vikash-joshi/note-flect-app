@@ -1,6 +1,6 @@
 const SaveRequest=async (Request)=>{
     try {
-        const response = await fetch("http://localhost:3001/api/Request/AddRequest", {
+        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Request/AddRequest", {
           method: "POST",
           credentials: "include",
           headers: {
@@ -24,7 +24,7 @@ const SaveRequest=async (Request)=>{
 
 const GetAllRequest=async()=>{
     try {
-        const response = await fetch("http://localhost:3001/api/Request/GetRequestByUser", {
+        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Request/GetRequestByUser", {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }

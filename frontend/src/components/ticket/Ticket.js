@@ -6,18 +6,23 @@ import TableSkeletonLoader from "../admin/Manage/table.skeleton";
 import { GetAllRequest } from "../Methods/RequestMethods";
 import { formatDistanceToNow } from "date-fns";
 import NoRecordFound from "../common/noRecordFound/norecordfound";
+import { SaveRequest } from "./TicketForm";
+import FullScreenSpinner from "../common/spinner/spinners";
 
 
 function CreateTicket({User,onEvent}){
+  const {isAuthenticated, logout } = useContext(_authContext);
   const [Message, SetMessage] = useState({ message: "", type: "" });
   const [showToast, setShowToast] = useState(false);
-
+  const [ShowFormLoading,SetFormLoading]=useState(false);
   const [RequestModel, SetRequestModel] = useState({
      _id: "",
      RequestTitle:"",
      RequestType:"",
      RequestQuery:"",
-     UserId:""
+     UserReqId:"",
+     Response:"",
+     RequestStatus:""
   });
 
   const sendValueToParent = (value) => {
@@ -31,14 +36,35 @@ function CreateTicket({User,onEvent}){
     setShowToast(false);
   };
 
+  const Save_Request = async (Request) => {
+  
+    SetFormLoading(true);
+    let Result = await SaveRequest(Request);
+    SetFormLoading(false);
+    if(Result && Result?.logout==true) {
+      logout();
+    }
+    else
+    if (Result && Result?.success && Result?.success == true) {
+      SetMessage({ message: Result.message, type: "text-success" });
+      //fetchData();
+      handleShowToast();
+      sendValueToParent();
+    } else if (Result && Result?.error) {
+      SetMessage({
+        message: Result?.error.join("<br />"),
+        type: "text-danger"
+      });
+      handleShowToast();
+    } else {
+      SetMessage({ message: Result?.message, type: "text-warning" });
+      handleShowToast();
+    }
+  };
+  
+
   useEffect(() => {
-    SetRequestModel({
-      UserId: User?.UserId,
-      RequestType: User?.RequestType,
-      RequestTitle: User?.RequestTitle,
-      RequestQuery: User?.RequestQuery,
-      _id: User?._id
-    });
+    SetRequestModel(User);
   }, [User?._id]);
 
   const handleChange = (field, value, call) => {
@@ -47,28 +73,24 @@ function CreateTicket({User,onEvent}){
     }
     if (call == true) {
       if (field === "RequestTitle" && call) {
-        //SendMailModel.FromEmail = value;
         SetRequestModel((prev) => ({
           ...prev,
           RequestTitle: value
         }));
       }
       if (field === "RequestType" && call) {
-        //SendMailModel.ToEmail = value;
         SetRequestModel((prev) => ({
           ...prev,
           RequestType: value
         }));
       }
       if (field === "RequestQuery" && call) {
-        //SendMailModel.Subject = value;
+        
         SetRequestModel((prev) => ({
           ...prev,
           RequestQuery: value
         }));
       }
-    
-      // SetUserModel(UserModel)
     }
   };
 
@@ -99,8 +121,9 @@ function CreateTicket({User,onEvent}){
         handleShowToast();
         return;
       }
-
-      const result = {message:'0:hello worodl'}//await SendMailLog(UserModel);
+      SetFormLoading(true);
+      const result = await Save_Request(UserModel);
+      SetFormLoading(false);
       if (result && result?.message && result?.message != "") {
         
         SetMessage({
@@ -124,6 +147,7 @@ function CreateTicket({User,onEvent}){
         className="position-fixed top-2 end-0 p-3"
         style={{ zIndex: 11, marginTop: "-55px" }}
       >
+        {ShowFormLoading && <FullScreenSpinner />}
         <ToastComponent
           show={showToast}
           onClose={handleCloseToast}
@@ -208,6 +232,7 @@ function CreateTicket({User,onEvent}){
  function RaiseTicket() {
   const navigate = useNavigate();
   const [Loading, SetLoading] = useState(true);
+  const [FormLoading, SetFormLoading] = useState(true);
   const [ShowNoRecord, SetNoRecord] = useState(false);
   
   const {isAuthenticated, logout } = useContext(_authContext);
@@ -215,12 +240,17 @@ function CreateTicket({User,onEvent}){
   const [ReuqestList,SetRequestList]=useState([])
   const {UserType} =useContext(_authContext);
   const [RequestModel, SetRequestModel] = useState({
+    RequestType:"General_Question",
     _id: "",
     RequestTitle:"",
-    RequestType:"General_Question",
     RequestQuery:"",
-    UserId:""
+    UserReqId:"",
+    Response:"",
+    RequestStatus:""
  });
+
+
+
 
  const fetchData = async () => {
   SetLoading(true);
@@ -259,14 +289,12 @@ useEffect(() => {
 }, [isAuthenticated, logout, navigate]);
 
   const HanldeClick=(value)=>{
-    SetRequestModel(value)
     setGridOrForm(!Grid_Form)
-    if(value){
-
-  }
+    fetchData();
   }
   const sendValueToParent=(Data,CallFrom)=>{
-
+    SetRequestModel(Data);
+    HanldeClick();
   }
   return (
     <>

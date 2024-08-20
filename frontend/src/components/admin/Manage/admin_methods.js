@@ -1,7 +1,7 @@
 
 const fetchallUsers=async()=>{
     try {
-        const response = await fetch(`http://localhost:3001/api/Admin/getUsers`, {
+        const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/getUsers`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }
@@ -17,7 +17,7 @@ const fetchallUsers=async()=>{
 
 const fetchEmailLogs=async()=>{
   try {
-      const response = await fetch(`http://localhost:3001/api/Admin/GetEmailLogs`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/GetEmailLogs`, {
         method: "GET",
         credentials: "include",
         headers: { "Content-Type": "application/json" }
@@ -32,7 +32,7 @@ const fetchEmailLogs=async()=>{
 
 const fetchRequestList=async()=>{
   try {
-      const response = await fetch(`http://localhost:3001/api/User/GetRequestList`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/User/GetRequestList`, {
         method: "GET",
         credentials: "include",
         headers: { "Content-Type": "application/json" }
@@ -49,7 +49,7 @@ const fetchRequestList=async()=>{
 
 const CreateUser=async(User,Methods)=>{
   try {
-    const response = await fetch("http://localhost:3001/api/Admin/"+Methods, {
+    const response = await fetch(process.env.REACT_APP_API_URL+"/api/Admin/"+Methods, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -76,7 +76,7 @@ const CreateUser=async(User,Methods)=>{
 
 const SendMailLog =async(MailBody)=>{
   try {
-    const response = await fetch("http://localhost:3001/api/Admin/SendMail", {
+    const response = await fetch(process.env.REACT_APP_API_URL+"/api/Admin/SendMail", {
       method: "POST",
       credentials: "include",
       headers: {

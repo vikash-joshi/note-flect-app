@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./profile.css";
 
 export default function Profile() {
+  
   const [user, setuser] = useState({});
   const { logout, login } = useContext(_authContext);
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export default function Profile() {
     try {
       debugger;
       const response = await fetch(
-        "http://localhost:3001/api/auth/verifytoken",
+        process.env.REACT_APP_API_URL+"/api/auth/verifytoken",
         {
           method: "GET",
           credentials: "include",
@@ -66,7 +67,7 @@ export default function Profile() {
     try {
       debugger;
       const response = await fetch(
-        "http://localhost:3001/api/users/getuser/" + Id,
+        process.env.REACT_APP_API_URL+"/api/users/getuser/" + Id,
         {
           method: "GET",
           credentials: "include",

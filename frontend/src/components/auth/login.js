@@ -39,7 +39,7 @@ export default function Login() {
         }
 
         SetLoading(true)
-    const response = await axios.post('http://localhost:3001/api/auth/VerifyUser', {
+    const response = await axios.post(process.env.REACT_APP_API_URL+'/api/auth/VerifyUser', {
       email: email,
           password: password
     }, {
@@ -67,7 +67,7 @@ export default function Login() {
     try {
       debugger;
       SetLoading(true)
-      const response = await fetch('http://localhost:3001/api/auth/verifytoken', {
+      const response = await fetch(process.env.REACT_APP_API_URL+'/api/auth/verifytoken', {
         method: "GET",credentials:'include',
          headers: {
           'Content-Type': 'application/json',
