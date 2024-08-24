@@ -1,5 +1,5 @@
 import './App.css'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/header/navbar';
 import Home from './components/home/home';
 import About from './components/home/about';
@@ -14,10 +14,23 @@ import Dashboard from './components/dashboard/dashboard';
 import RaiseTicket from './components/ticket/Ticket';
 import NewManageUsers from './components/admin/Manage/NewManageUsers';
 import EmailLog from './components/admin/Manage/ManageEmailLog';
+import PageLoader from './components/page_loader/page_loader';
 
-const App = () => (
+export default function App (){
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulate a loading delay (e.g., fetch data, wait for content to load)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Adjust the timeout as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+  return(
 <>
+{loading && <PageLoader />} {/* Show loader while loading */}
+{!loading && (
 <AuthProvider>   
 <Router>    
     <Navbar /> 
@@ -40,9 +53,8 @@ const App = () => (
         </Routes>
         
         </Router>
-        </AuthProvider> 
+        </AuthProvider> )}
 
-</>
-);
+</>)}
 
-export default App;
+

@@ -467,15 +467,19 @@ function NewManageUsers() {
                 <span className="badge bg-light text-black" style={{fontSize:'15px'}}>Page No. {PageNo}</span>
               </div>
               <div className="col-md-3 mt-3 text-end">
-                <button className="btn bg-black text-white" onClick={HandlePrev} disabled={PageNo === 1}>
-                  Previous
+                <button className="btn btn-light btn-sm d-inline-flex text-black" onClick={HandlePrev} disabled={PageNo === 1}>
+                  <span class="material-symbols-outlined">
+keyboard_double_arrow_left
+</span>
                 </button>
                 &nbsp;&nbsp;
-                <button className="btn bg-black text-white"
+                <button className="btn btn-light btn-sm d-inline-flex text-black"
                   onClick={HandleNext}
                   disabled={PageNo * 5 >= totalRecord}
                 >
-                  Next
+                  <span class="material-symbols-outlined">
+keyboard_double_arrow_right
+</span>
                 </button>
               </div></div>
               </>
