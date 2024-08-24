@@ -113,7 +113,7 @@ router.get("/get", async (req, res) => {
     try {
         const limit = 5;  // Number of documents per page
         const skip = (req.query.Page - 1) * limit;
-        let TotalRecords=await Request.countDocuments(Condition);
+        let TotalRecords=await Users.countDocuments(Condition);
     
         const _user = await Users.find({}, {
             name: 1,
