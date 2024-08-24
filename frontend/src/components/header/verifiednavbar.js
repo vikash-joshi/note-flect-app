@@ -52,14 +52,14 @@ export default function VerifiedNavbar(props) {
         
         
 
-        <li class="nav-link dropdown">
-          <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li className="nav-link dropdown">
+          <a className="nav-link dropdown-toggle text-center" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           { user  && user?.name && user?.name}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><Link className={`${_location.pathname == "/ChangePassword" ? "active" : ""} dropdown-item`} to="/ChangePassword">Change Password</Link></li>
             
-            <li onClick={_logout}><a class="dropdown-item" href="#">Logout</a></li>
+            <li onClick={_logout}><a className="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
         

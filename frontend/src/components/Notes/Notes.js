@@ -315,8 +315,8 @@ export default function Notes() {
                 
                 <div className="row">
                   {NotesList && NotesList.length > 0 && <div className="col-md-12 prevnext_container mb-2">
-                     <button onClick={HandlePrev} className="btn prevnextbtn btn-link" disabled={PageNo==1}><span class="prevnext material-symbols-outlined">arrow_back_ios</span></button>
-                    <button style={{marginLeft: '8px'}} onClick={HandleNext} className="ml-2 btn prevnextbtn btn-link" disabled={PageNo * 2 >= totalRecord}><span class="prevnext material-symbols-outlined">arrow_forward_ios</span></button>
+                     <button onClick={HandlePrev} className="btn prevnextbtn btn-link" disabled={PageNo==1}><span className="prevnext material-symbols-outlined">arrow_back_ios</span></button>
+                    <button style={{marginLeft: '8px'}} onClick={HandleNext} className="ml-2 btn prevnextbtn btn-link" disabled={PageNo * 2 >= totalRecord}><span className="prevnext material-symbols-outlined">arrow_forward_ios</span></button>
                     </div>}  
                   {NotesList && NotesList.length > 0
                     ? 

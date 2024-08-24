@@ -10,7 +10,7 @@ import {AuthProvider } from "./context/authContext";
 import Profile from './components/Users/profile';
 import Notes from './components/Notes/Notes';
 import Dashboard from './components/dashboard/dashboard';
-import ManageUsers from './components/admin/Manage/Manageuser';
+//import ManageUsers from './components/admin/Manage/Manageuser';
 import RaiseTicket from './components/ticket/Ticket';
 import NewManageUsers from './components/admin/Manage/NewManageUsers';
 import EmailLog from './components/admin/Manage/ManageEmailLog';

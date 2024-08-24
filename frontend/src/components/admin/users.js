@@ -19,6 +19,7 @@ export default function Users() {
   const [Loading, SetLoading] = useState(true);
   const [Action,SetAction]=useState('grid')
   const [Grid_Form,setGridOrForm]=useState(true);
+  
   const Hanlde_View_User_EmailLog=()=>{
     SetAction(Action == 'mail' ? 'grid':'mail');
   }
@@ -138,7 +139,7 @@ SetEmailList(Res);
             onClick={_fetchData} disabled={Loading}
             className=" ml-10 btn btn-outline-warning justify-content-center align-items-center d-flex"
           >
-            <span class="material-symbols-outlined">sync</span> Refresh
+            <span className="material-symbols-outlined">sync</span> Refresh
           </button> }
           {(Grid_Form && Action === 'mail' ) || (Grid_Form && Action !== 'mail') &&
           <button style={{marginLeft:'10px'}}
@@ -146,7 +147,7 @@ SetEmailList(Res);
             onClick={Hanlde_View_User_EmailLog}
             className=" ml-10 btn btn-primary justify-content-center align-items-center d-flex"
           >
-            <span class="material-symbols-outlined">{Grid_Form ? 'list_alt' :'arrow_back'}</span>{Grid_Form && Action == 'mail' ? 'View Users': Grid_Form && Action !== 'mail' ? 'View Logs' : 'Back'}
+            <span className="material-symbols-outlined">{Grid_Form ? 'list_alt' :'arrow_back'}</span>{Grid_Form && Action == 'mail' ? 'View Users': Grid_Form && Action !== 'mail' ? 'View Logs' : 'Back'}
           </button>
           }
           <button style={{marginLeft:'10px'}}
@@ -154,7 +155,7 @@ SetEmailList(Res);
             onClick={HanldeState}
             className=" ml-10 btn btn-primary justify-content-center align-items-center d-flex"
           >
-            <span class="material-symbols-outlined">{Grid_Form ? 'person_add':'arrow_back'}</span>{Grid_Form ? 'Add':'Back'}
+            <span className="material-symbols-outlined">{Grid_Form ? 'person_add':'arrow_back'}</span>{Grid_Form ? 'Add':'Back'}
           </button>
         </div>
       </div> 

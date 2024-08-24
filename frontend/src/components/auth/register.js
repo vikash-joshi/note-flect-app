@@ -224,7 +224,7 @@ export default function Register() {
                       htmlFor="input3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{    color: '#178fff',    fontSize: '31px'}}>
+                      <span className="material-symbols-outlined" style={{    color: '#178fff',    fontSize: '31px'}}>
 person
 </span>
                     </label>
@@ -253,7 +253,7 @@ person
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{     color: '#178fff',  fontSize: '31px'}}>
+                      <span className="material-symbols-outlined" style={{     color: '#178fff',  fontSize: '31px'}}>
 mail
 </span>
                     </label>
@@ -282,7 +282,7 @@ mail
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-      <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
+      <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 wc
 </span>
                     </label>
@@ -305,7 +305,7 @@ wc
                       className="col-sm-2 col-form-label"
                       
                     >
-                      <span class="material-symbols-outlined" style={{     color: '#178fff',   fontSize: '31px'}}>
+                      <span className="material-symbols-outlined" style={{     color: '#178fff',   fontSize: '31px'}}>
 lock
 </span>
                     </label>

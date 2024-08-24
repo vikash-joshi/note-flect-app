@@ -53,7 +53,7 @@ export default function Login() {
       handleShowToast();
     }
     else{
-    login();
+    login(result?.data?.data);
     navigate('/Profile')
     }
   }
@@ -186,7 +186,7 @@ export default function Login() {
                       htmlFor="inputEmail3"
                       className="col-sm-2 col-form-label"
                     >
-                      <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
+                      <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 mail
 </span>
                     </label>
@@ -207,7 +207,7 @@ mail
                       htmlFor="inputPassword3"
                       className="col-sm-2 col-form-label"
                     >
-       <span class="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
+       <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 lock
 </span>
                     </label>

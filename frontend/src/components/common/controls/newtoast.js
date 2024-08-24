@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './newtoast.css'
+import DOMPurify from 'dompurify';
 
 const ToastComponent = ({ show, onClose,type, message, duration }) => {
   const [progress, setProgress] = useState(100);
-
   useEffect(() => {
     if (show) {
+
       setProgress(100); // Start from 100%
       const interval = setInterval(() => {
         setProgress((prev) => {
@@ -28,7 +29,7 @@ const ToastComponent = ({ show, onClose,type, message, duration }) => {
         <div className="toast-body">
           <div className="align-items-center justify justify-content-start d-flex">
             <div className="me-3">
-            <span class="material-symbols-outlined" style={{fontSize:'31px'}}>
+            <span className="material-symbols-outlined" style={{fontSize:'31px'}}>
             {type?.toString().includes('danger') ? 'error':'check_circle'}
 </span>
 
@@ -36,7 +37,7 @@ const ToastComponent = ({ show, onClose,type, message, duration }) => {
             <div>
 
               <strong className="me-auto">{type?.toString().includes('danger') ? 'Error':'Success'}</strong>
-              <p>{message}</p>
+              <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(message) }}></p>
             </div>
           </div>
         

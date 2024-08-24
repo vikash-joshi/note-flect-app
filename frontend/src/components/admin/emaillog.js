@@ -67,7 +67,7 @@ export default function EmailLogs({ EmailList, onEvent }) {
                 >
                   <span
                     style={{ fontSize: "20px" }}
-                    class="material-symbols-outlined"
+                    className="material-symbols-outlined"
                   >
                     autorenew
                   </span>{" "}
@@ -101,7 +101,7 @@ export default function EmailLogs({ EmailList, onEvent }) {
                   <td>
                     <button
                       type="button"
-                      class="btn btn-link"
+                      className="btn btn-link"
                       data-toggle="modal"
                       data-target="#exampleModal"
                       onClick={() => openModal(ele)}
@@ -121,7 +121,7 @@ export default function EmailLogs({ EmailList, onEvent }) {
                     <span
                       onClick={() => sendValueToParent(ele, "edit")}
                       style={{ cursor: "pointer" }}
-                      class="text-primary material-symbols-outlined"
+                      className="text-primary material-symbols-outlined"
                     >
                       edit_square
                     </span>
@@ -129,7 +129,7 @@ export default function EmailLogs({ EmailList, onEvent }) {
                     <span
                       onClick={() => sendValueToParent(ele, "delete")}
                       style={{ cursor: "pointer" }}
-                      class="text-danger material-symbols-outlined"
+                      className="text-danger material-symbols-outlined"
                     >
                       delete
                     </span>
@@ -137,7 +137,7 @@ export default function EmailLogs({ EmailList, onEvent }) {
                     <span
                       onClick={() => sendValueToParent(ele, "mail")}
                       style={{ cursor: "pointer" }}
-                      class="text-danger material-symbols-outlined"
+                      className="text-danger material-symbols-outlined"
                     >
                       mail
                     </span>

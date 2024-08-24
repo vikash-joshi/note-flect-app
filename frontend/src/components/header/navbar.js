@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-white static-top">
       <div className="container navbar_responsive">
-          <a class="navbar-brand nav_name" href="/"><span class="material-symbols-outlined brand_logo">eco</span>NOTEFLECT</a>
+          <a className="navbar-brand nav_name" href="/"><span className="material-symbols-outlined brand_logo">eco</span>NOTEFLECT</a>
     
         <button
           className="navbar-toggler"

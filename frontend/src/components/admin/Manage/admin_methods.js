@@ -1,7 +1,7 @@
 
-const fetchallUsers=async()=>{
+const fetchallUsers=async(PageNo)=>{
     try {
-        const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/getUsers`, {
+        const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/getUsers?PageNo=${PageNo}`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }
@@ -15,9 +15,9 @@ const fetchallUsers=async()=>{
 }
 
 
-const fetchEmailLogs=async()=>{
+const fetchEmailLogs=async(PageNo)=>{
   try {
-      const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/GetEmailLogs`, {
+      const response = await fetch(process.env.REACT_APP_API_URL+`/api/Admin/GetEmailLogs?PageNo=${PageNo}`, {
         method: "GET",
         credentials: "include",
         headers: { "Content-Type": "application/json" }
@@ -47,27 +47,38 @@ const fetchRequestList=async()=>{
 
 
 
-const CreateUser=async(User,Methods)=>{
+const CreateUser=async(User,Methods,route)=>{
   try {
-    const response = await fetch(process.env.REACT_APP_API_URL+"/api/Admin/"+Methods, {
+    let URL=process.env.REACT_APP_API_URL+"/api/"+(route ? route : 'Admin')+"/"+Methods;
+    const response = await fetch(URL, {
       method: "POST",
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        name: User?.name,
-        email: User?.email,
-        Gender: User?.gender,
-        UserType: User?.UserType,
-        IsAccountLocked: User?.IsAccountLocked,
-        IsEmailVerified: User?.IsEmailVerified,
-        
-        UserType:User?.UserType,
-        _id: User?._id
-      })
+      body: JSON.stringify(User)
     });
     const json = await response.json();
+    console.log(json)
+    return json;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+const UpdateUser=async(User)=>{
+  try {
+    
+    const response = await fetch(process.env.REACT_APP_API_URL+"/api/users/update", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(User)
+    });
+    const json = await response.json();
+    console.log(json)
     return json;
   } catch (error) {
     console.error(error.message);
@@ -98,4 +109,4 @@ const SendMailLog =async(MailBody)=>{
 }
 
 
-module.exports={fetchallUsers,SendMailLog,CreateUser,fetchEmailLogs}
+module.exports={fetchallUsers,SendMailLog,CreateUser,fetchEmailLogs,UpdateUser}

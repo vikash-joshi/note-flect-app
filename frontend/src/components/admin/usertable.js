@@ -19,7 +19,7 @@ export default function TableUsers ({UserList, onEvent }) {
           >
             <span
               style={{ fontSize: "20px" }}
-              class="material-symbols-outlined"
+              className="material-symbols-outlined"
             >
               autorenew
             </span>{" "}
@@ -57,11 +57,11 @@ export default function TableUsers ({UserList, onEvent }) {
             {/* Assuming you have a userType field */}
             <td>
               {ele.IsAccountLocked ? (
-                <span class="material-symbols-outlined text-danger">
+                <span className="material-symbols-outlined text-danger">
                   lock
                 </span>
               ) : (
-                <span class="text-success material-symbols-outlined">
+                <span className="text-success material-symbols-outlined">
                   lock_open
                 </span>
               )}
@@ -77,21 +77,21 @@ export default function TableUsers ({UserList, onEvent }) {
             <td>
               <span  onClick={()=>sendValueToParent(ele,'edit')}
                 style={{ cursor: "pointer" }}
-                class="text-primary material-symbols-outlined"
+                className="text-primary material-symbols-outlined"
               >
                 edit_square
               </span>
               &nbsp;
               <span onClick={()=>sendValueToParent(ele,'delete')}
                 style={{ cursor: "pointer" }}
-                class="text-danger material-symbols-outlined"
+                className="text-danger material-symbols-outlined"
               >
                 delete
               </span>
               &nbsp;
               <span onClick={()=>sendValueToParent(ele,'mail')}
                 style={{ cursor: "pointer" }}
-                class="text-danger material-symbols-outlined"
+                className="text-danger material-symbols-outlined"
               >
                 mail
               </span>

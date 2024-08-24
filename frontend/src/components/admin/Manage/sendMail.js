@@ -174,51 +174,51 @@ export default function SendMail({ User, onEvent }) {
           <h3 className="text-center pt-3">Send Mail</h3>
           <form style={{ padding: "10px !important" }}>
             <div className="col-12 col-md-12">
-              <div class="form-group d-block">
+              <div className="form-group d-block">
                 <label htmlFor="exampleInputEmail1">From Email</label>
                 <input
                   onInput={(e) => handleChange("fromemail", e.target.value)}
                   type="email"
                   value={SendMailModel.FromEmail}
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter From Mail"
                 />
               </div>
-              <div class="form-group d-block">
+              <div className="form-group d-block">
                 <label htmlFor="exampleInputEmail1">To Email</label>
                 <input
                   onInput={(e) => handleChange("toemail", e.target.value)}
                   type="email"
                   value={SendMailModel.ToEmail}
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter To Mail"
                 />
               </div>
-              <div class="form-group d-block">
+              <div className="form-group d-block">
                 <label htmlFor="exampleInputEmail1">Subject</label>
                 <input
                   type="email"
                   onInput={(e) => handleChange("subject", e.target.value)}
                   value={SendMailModel.Subject}
-                  class="form-control"
+                  className="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter Subject"
                 />
               </div>
-              <div class="form-group d-block">
-                <label for="exampleFormControlTextarea1" class="form-label">
+              <div className="form-group d-block">
+                <label for="exampleFormControlTextarea1" className="form-label">
                   Message Body
                 </label>
                 <textarea
                   onInput={(e) => handleChange("body", e.target.value)}
                   value={SendMailModel.Body}
                   placeholder="Enter Message Body"
-                  class="form-control"
+                  className="form-control"
                   id="exampleFormControlTextarea1"
                   rows="3"
                 ></textarea>
@@ -229,13 +229,13 @@ export default function SendMail({ User, onEvent }) {
               <button
                 onClick={(e) => HandleSubmit(e,SendMailModel)}
                 type="button"
-                class="btn bg-white text-primary"
+                className="btn bg-white text-primary"
               >
                 Send
               </button>&nbsp;&nbsp; <button
                 onClick={sendValueToParent}
                 type="button"
-                class="btn bg-white text-primary"
+                className="btn bg-white text-primary"
               >Go Back
               </button>
               

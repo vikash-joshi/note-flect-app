@@ -7,6 +7,7 @@ import _authContext from "../../../context/authContext";
 import ModalComponent from "../../common/modal";
 import { formatDistanceToNow } from "date-fns";
 import SendMail from "./sendMail";
+import NoRecordFound from "../../common/noRecordFound/norecordfound";
 const { fetchEmailLogs } = require("./admin_methods");
 
 
@@ -18,6 +19,22 @@ export default function EmailLog() {
     const {isAuthenticated, logout } = useContext(_authContext);
     const [EmailList, SetUserLists] = useState([]);
     const [Loading, SetLoading] = useState(true);
+    const [NoRecord, SetNoRecord] = useState(false);
+    
+    const [totalRecord, SettotalRecord] = useState(15);
+    const [RecordCount, SetRecordCount] = useState(5);
+   let [PageNo, SetPageNo] = useState(1);
+   
+   const HandleNext=()=>{
+    PageNo=PageNo+1;
+    SetPageNo(PageNo);
+    fetchData()
+   }
+   
+   const HandlePrev=()=>{
+    SetPageNo(PageNo ==1 ? 1 :PageNo-1);
+    fetchData()
+   }
     const HanldeClick=()=>{
       setGridOrForm(!Grid_Form)
     }
@@ -26,14 +43,20 @@ export default function EmailLog() {
     const fetchData = async () => {
       SetLoading(true);
       if (isAuthenticated) {
-        let Res = await fetchEmailLogs();
+        let Res = await fetchEmailLogs(PageNo);
         console.log(Res);
-        if (Res && Res.message == undefined) {
-          setTimeout(() => {
+        if (Res && Res.logout) {
+          logout();
+          navigate("/Login"); // Handle the case where there's no message or an empty message
+        }
+        else if (Res && Res.EmailList) {
+          //setTimeout(() => {
             SetLoading(false);
-          }, 1000);
+          //}, 1000);
          
-          SetUserLists(Res);
+          SetNoRecord(Res.EmailList?.length==0)
+          SetUserLists(Res.EmailList);
+          SettotalRecord(Res.TotalRecords)
          
         } else {
           logout();
@@ -109,9 +132,15 @@ export default function EmailLog() {
           </div>
           
     <div className="">
-    {Loading && <TableSkeletonLoader />}
+    {Grid_Form &&  Loading && <TableSkeletonLoader />}
+  {Grid_Form && NoRecord && <NoRecordFound />}
       {Grid_Form && !Loading &&
-      <table className="table-responsive table table-striped table-bordered mt-4">
+      <>
+      <div className="col-md-1">
+            <span className="badge bg-primary" style={{fontSize:'15px'}}>Total Records:{totalRecord}</span>
+            </div><div className="col-md-11"></div>
+           
+       <table className="table-responsive table table-striped table-bordered mt-4">
         <thead>
           <tr className="text -end d-none">
             <th colspan="9">
@@ -121,7 +150,7 @@ export default function EmailLog() {
               >
                 <span
                   style={{ fontSize: "20px" }}
-                  class="material-symbols-outlined"
+                  className="material-symbols-outlined"
                 >
                   autorenew
                 </span>{" "}
@@ -155,7 +184,7 @@ export default function EmailLog() {
                 <td>
                   <button
                     type="button"
-                    class="btn btn-link"
+                    className="btn btn-link"
                     data-toggle="modal"
                     data-target="#exampleModal"
                     onClick={() => openModal(ele)}
@@ -175,7 +204,7 @@ export default function EmailLog() {
                   <span
                     onClick={() => sendValueToParent(ele, "edit")}
                     style={{ cursor: "pointer" }}
-                    class="text-primary material-symbols-outlined"
+                    className="text-primary material-symbols-outlined"
                   >
                     edit_square
                   </span>
@@ -183,7 +212,7 @@ export default function EmailLog() {
                   <span
                     onClick={() => sendValueToParent(ele, "delete")}
                     style={{ cursor: "pointer" }}
-                    class="text-danger material-symbols-outlined"
+                    className="text-danger material-symbols-outlined"
                   >
                     delete
                   </span>
@@ -191,7 +220,7 @@ export default function EmailLog() {
                   <span
                     onClick={() => sendValueToParent(ele, "mail")}
                     style={{ cursor: "pointer" }}
-                    class="text-danger material-symbols-outlined"
+                    className="text-danger material-symbols-outlined"
                   >
                     mail
                   </span>
@@ -202,6 +231,23 @@ export default function EmailLog() {
             ))}
         </tbody>
       </table>
+        <div className="row">
+              <div className="col-md-9">
+                <span className="badge bg-light text-black" style={{fontSize:'15px'}}>Page No. {PageNo}</span>
+              </div>
+              <div className="col-md-3 mt-3 text-end">
+                <button className="btn bg-black text-white" onClick={HandlePrev} disabled={PageNo === 1}>
+                  Previous
+                </button>
+                &nbsp;&nbsp;
+                <button className="btn bg-black text-white"
+                  onClick={HandleNext}
+                  disabled={PageNo * 5 >= totalRecord}
+                >
+                  Next
+                </button>
+              </div></div></>
+     
       }
       {!Grid_Form && <SendMail User={User} onEvent={sendValueToParent} />}
       </div>

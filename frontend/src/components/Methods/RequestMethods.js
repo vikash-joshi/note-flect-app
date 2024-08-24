@@ -22,9 +22,9 @@ const SaveRequest=async (Request)=>{
 
 }
 
-const GetAllRequest=async()=>{
+const GetAllRequest=async(PageNo)=>{
     try {
-        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Request/GetRequestByUser", {
+        const response = await fetch(process.env.REACT_APP_API_URL+"/api/Request/GetRequestByUser?Page="+PageNo, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" }

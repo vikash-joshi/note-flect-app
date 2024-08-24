@@ -134,13 +134,13 @@ export default function CreateUsers({ User, onEvent }) {
     }
   };
 
-  const handleShowToast = () => {
-    setShowToast(true);
-  };
+    const handleShowToast = () => {
+      setShowToast(true);
+    };
 
-  const handleCloseToast = () => {
-    setShowToast(false);
-  };
+    const handleCloseToast = () => {
+      setShowToast(false);
+    };
 
   return (
     <>
@@ -170,35 +170,35 @@ export default function CreateUsers({ User, onEvent }) {
           <div className="pt-3 pb-2 text-center">
             <h4>Add User</h4>
           </div>
-          <div class="form-group d-block">
+          <div className="form-group d-block">
             <label htmlFor="exampleInputEmail1">Email</label>
             <input
               onInput={(e) => handleChange("email", e.target.value)}
               type="email"
               value={UserModel.email}
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
             />
           </div>
-          <div class="form-group  d-block">
+          <div className="form-group  d-block">
             <label htmlFor="exampleInputPassword1">UserName</label>
             <input
               onInput={(e) => handleChange("name", e.target.value)}
               type="text"
               value={UserModel.name}
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Enter username"
             />
           </div>
-          <div class="form-group  d-block">
+          <div className="form-group  d-block">
             <label htmlFor="exampleFormControlSelect1">Select Gender</label>
             <select
               onInput={(e) => handleChange("gender", e.target.value)}
               value={UserModel.gender}
-              class="form-control"
+              className="form-control"
               id="exampleFormControlSelect1"
             >
               <option value="Male">Male</option>
@@ -206,12 +206,12 @@ export default function CreateUsers({ User, onEvent }) {
               <option value="Others">Others</option>
             </select>
           </div>
-          <div class="form-group  d-block">
+          <div className="form-group  d-block">
             <label htmlFor="exampleFormControlSelect2">Select Usertype</label>
             <select
               onInput={(e) => handleChange("UserType", e.target.value)}
               value={UserModel.UserType}
-              class="form-control"
+              className="form-control"
               id="exampleFormControlSelect2"
             >
               <option value="User">User</option>
@@ -219,7 +219,7 @@ export default function CreateUsers({ User, onEvent }) {
             </select>
             {UserModel.UserType}
           </div>
-          <div class="form-check  d-block">
+          <div className="form-check  d-block">
             <input
               checked={IsAccountLocked}
               onChange={(event) =>
@@ -227,14 +227,14 @@ export default function CreateUsers({ User, onEvent }) {
               }
               value={UserModel.IsAccountLocked}
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" htmlFor="exampleCheck1">
+            <label className="form-check-label" htmlFor="exampleCheck1">
               Is Account Locked
             </label>
           </div>
-          <div class="form-check  d-block">
+          <div className="form-check  d-block">
             <input
               checked={IsEmailVerified}
               onChange={(event) =>
@@ -242,22 +242,22 @@ export default function CreateUsers({ User, onEvent }) {
               }
               value={UserModel.IsEmailVerified}
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" htmlFor="exampleCheck1">
+            <label className="form-check-label" htmlFor="exampleCheck1">
               Is Email Verified
             </label>
           </div>
-          <div class="form-group d-block">
+          <div className="form-group d-block">
           <button
             onClick={() => HandleSubmit(UserModel)}
-            class="btn bg-white text-primary"
+            className="btn bg-white text-primary"
           >
             Submit
           </button>
           &nbsp;&nbsp;&nbsp;
-          <button onClick={sendValueToParent} class="btn bg-white text-primary">
+          <button onClick={sendValueToParent} className="btn bg-white text-primary">
             Go Back
           </button>
           </div>
