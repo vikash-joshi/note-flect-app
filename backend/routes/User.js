@@ -8,6 +8,7 @@ const {
     validationResult
 } = require("express-validator");
 const {  GeneratePassword } = require("../common/password");
+const authenticateToken = require("../middleware/fetchuser");
 
 
 router.post(
@@ -110,14 +111,18 @@ router.post(
 
 router.get("/get", async (req, res) => {
     try {
+        const limit = 5;  // Number of documents per page
+        const skip = (req.query.Page - 1) * limit;
+        let TotalRecords=await Request.countDocuments(Condition);
+    
         const _user = await Users.find({}, {
             name: 1,
             email: 1,
             UserBio: 1,
             phoneNumber: 1
-        });
+        }).skip(skip).limit(limit);
         if (_user) {
-            res.json(_user);
+            res.json({ Users:_user,TotalRecord:TotalRecords});
         } else {
             res.status(200).json({
                 message: "0:Data Not Found"
@@ -130,12 +135,10 @@ router.get("/get", async (req, res) => {
     }
 });
 
-router.get("/getuser/:id", async (req, res) => {
+router.get("/getuser",authenticateToken, async (req, res) => {
     try {
-        console.log(req.query);
-        console.log(req.params.id);
         const _user = await Users.find({
-            _id:(new mongoose.Types.ObjectId( req.params.id))
+            _id:(new mongoose.Types.ObjectId( req.body.UserId))
         }, {
             name: 1,
             email: 1,
@@ -145,7 +148,7 @@ router.get("/getuser/:id", async (req, res) => {
         });
         console.log(_user);
         if (_user) {
-            res.json(_user);
+            res.json(_user[0]);
         } else {
             res.status(200).json({
                 message: "0:Data Not Found"
@@ -169,14 +172,12 @@ router.post(
         }),
         body("email", "Email Cannot Be Blank and Provide Correct Email").isEmail(),
         
-    ],
+    ],authenticateToken,
     async (req, res) => {
         const {
             name,
-            email,
             Gender,
             UserBio,
-            phoneNumber
         } = req.body;
         try {
             const _error = validationResult(req);
@@ -185,26 +186,43 @@ router.post(
                 res
                     .status(200)
                     .json({
-                        error: _error.array().map((x) => x.path + " " + x.msg)
+                        message: _error.array().map((x) => x.path + " " + x.msg)
                     });
             } else {
-                const _userexist = await Users.find({
-                    email: email
-                }, {
-                    _id: 1,
-                    email: 1
-                });
-                console.log(_userexist);
-                if (_userexist) {
-                    const newUser = new Users({
-                        name: name,
-                        email: email,
+                
+               
+                   
+                let NoteResult= await Users.updateOne(
+                        {
+                            _id: req.body.UserId.toString()
+                        },
+                        {
+                            $set: {
+                                name: name,
                         gender: Gender,
                         UserBio: UserBio,
-                    });
+                            }
+                        }
+                    );
+                    console.log('fianl',NoteResult)
+                    if (NoteResult) {
+                        res.status(200).json( {
+                            message: "1:Update Successfully",
+                            Data: {
+                                id: NoteResult?._id
+                            }
+                    })
+                    
+                    } 
+                    else {
+                        res.status(200).json( {
+                            message: "0:U",
+                            Data: null
+                        });
+                    }
 
-                    console.log(_userexist[0].email);
-                    newUser
+
+                  /*  Users
                         .findOneUpdate({
                             email: _userexist[0]["email"]
                         }, {
@@ -220,7 +238,7 @@ router.post(
                             res.status(200).json({
                                 message: err.message
                             });
-                        });
+                        });*/
                 }
                 /*else{
 
@@ -244,7 +262,7 @@ router.post(
         );
       }
     }*/
-            }
+            
         } catch (err) {
             res.status(200).json({
                 message: err.message

@@ -29,8 +29,12 @@ const SaveEmailLog=async(MailModel)=>{
 
 }
 
-const GetEmailLogs=async()=>
+const GetEmailLogs=async(PageNo)=>
 {
+  const limit = 5;  // Number of documents per page
+  const skip = (PageNo - 1) * limit;
+  let TotalRecords=await EmailLog.countDocuments();
+
     let EmailList=await EmailLog.aggregate([
         {
           $lookup: {
@@ -60,7 +64,7 @@ const GetEmailLogs=async()=>
             'userDetails.email': 1, // Include user email
           },
         },
-      ]);
+      ]).skip(skip).limit(limit);
     /*let EmailList=await EmailLog.aggregate([
         {
             $lookup:{
@@ -77,7 +81,7 @@ const GetEmailLogs=async()=>
 //    EmailList.forEach(e=>{e.name=e?.userslist?.name});
     console.log('email list',EmailList)
     EmailList=EmailList.map(x=>({name:x.userDetails.name,FromEmail:x.FromEmail,ToEmail:x.ToEmail,Subject:x.Subject,Body:x.Body,createdAt:x.createdAt}))
-    return EmailList;
+    return {EmailList:EmailList,TotalRecords:TotalRecords};
 }
 
 module.exports= { SaveEmailLog,GetEmailLogs }

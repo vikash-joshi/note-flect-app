@@ -6,9 +6,10 @@ const {
   body,
   validationResult
 } = require("express-validator");
-router.get('/GetRequestByUser',authenticateToken, async (req,res,next)=>{
+router.get('/GetRequestByUser',authenticateToken, async (req,res)=>{
     try {
-        const _RequestList = await GetRequestByUser(req.body.UserId);
+
+        const _RequestList = await GetRequestByUser(req.body.UserId,req.body._UserType,req.query.Page);
         console.log('reuqtes',_RequestList)
         if (_RequestList) {
           res.status(200).json(_RequestList);

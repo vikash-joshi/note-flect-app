@@ -96,7 +96,11 @@ router.post(
                 maxAge: 100000 * 60 * 1
               }); // Set secure: true in production
 
-              res.status(200).json({ success: true });
+              res.status(200).json({ success: true,data: {
+                name: req.body.name,
+                email: req.body.email,
+                UserType: _userExist.UserType,
+                } });
             }
           }
         }

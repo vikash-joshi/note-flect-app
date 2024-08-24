@@ -13,6 +13,11 @@ const { SaveEmailLog, GetEmailLogs } = require("../common/MailMethods");
 
 router.get("/getUsers", authenticateToken, async (req, res) => {
   try {
+    const limit = 5;  // Number of documents per page
+    const skip = (req.query.Page - 1) * limit;
+    let TotalRecords=await Request.countDocuments();
+
+    
    const _user = await Users.find(
       {},
       {
@@ -24,9 +29,9 @@ router.get("/getUsers", authenticateToken, async (req, res) => {
         IsAccountLocked: 1,
         createdAt: 1
       }
-    );
+    ).skip(skip).limit(limit);
     if (_user) {
-      res.json(_user);
+      res.json({ Users:_user,TotalRecord:TotalRecords});
     } else {
       res.status(200).json({
         message: "0:Data Not Found"
@@ -41,7 +46,8 @@ router.get("/getUsers", authenticateToken, async (req, res) => {
 
 router.get("/GetEmailLogs", authenticateToken, async (req, res) => {
   try {
-    const _user = await GetEmailLogs();
+    const 
+    _user = await GetEmailLogs(req.query.PageNo);
     if (_user) {
       res.json(_user);
     } else {
