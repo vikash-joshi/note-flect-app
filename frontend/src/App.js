@@ -16,7 +16,24 @@ import NewManageUsers from './components/admin/Manage/NewManageUsers';
 import EmailLog from './components/admin/Manage/ManageEmailLog';
 import PageLoader from './components/page_loader/page_loader';
 
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos'; // Import AOS library
+
+export const AppWrapper = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Duration of animations in milliseconds
+      easing: 'ease-in-out', // Animation easing
+      once: true, // Whether animation should happen only once or every time you scroll up/down
+    });
+  }, []);
+}
+
+
+
 export default function App (){
+
+// Initialize AOS
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,6 +72,7 @@ export default function App (){
         </Router>
         </AuthProvider> )}
 
-</>)}
+</>)
+}
 
 

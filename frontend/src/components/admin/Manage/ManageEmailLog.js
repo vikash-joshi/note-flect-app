@@ -237,7 +237,7 @@ export default function EmailLog() {
               </div>
               <div className="col-md-3 mt-3 text-end">
                 <button className="btn btn-light btn-sm d-inline-flex text-black" onClick={HandlePrev} disabled={PageNo === 1}>
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
 keyboard_double_arrow_left
 </span>
                 </button>
@@ -246,7 +246,7 @@ keyboard_double_arrow_left
                   onClick={HandleNext}
                   disabled={PageNo * 5 >= totalRecord}
                 >
-                  <span class="material-symbols-outlined">
+                  <span className="material-symbols-outlined">
 keyboard_double_arrow_right
 </span>
                 </button>

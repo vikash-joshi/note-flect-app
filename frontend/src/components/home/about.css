@@ -61,12 +61,47 @@
   
   .jumbotron_additon{
   
-    padding-top: 61px;
-    letter-spacing: 3px;
-    line-height: 24px;
+    padding-top: 15px;
+    letter-spacing: 1px;
+
   
   }
     
+
+  .p_under_line:hover {
+    border-bottom: 1px solid #178fff;
+  }
+
+  /* Base text styling */
+.text-hover {
+  display: inline-block;
+  position: relative; /* Required for the pseudo-element positioning */
+  font-size: 1.2rem; /* Adjust size as needed */
+  color: #333; /* Default text color */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Underline styling */
+.text-hover::after {
+  content: ''; /* No content for the pseudo-element */
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust this value to position the underline */
+  width: 100%;
+  height: 2px; /* Thickness of the underline */
+  background-color: transparent; /* Default underline color */
+  transition: background-color 0.3s ease; /* Smooth transition for the underline color */
+}
+
+/* Hover effect */
+.text-hover:hover {
+  color: #178fff; /* Change text color on hover */
+}
+
+.text-hover:hover::after {
+  background-color: #178fff; /* Underline color on hover */
+}
+
   .Quotes {
     background: linear-gradient(270deg, #9bd5f8, #016eb1);
     background-size: 400% 400%;

@@ -5,15 +5,15 @@ import './pageloader.css'; // Import your CSS for styling
 function PageLoader() {
   return (
     <>
-    <div class="loader-container">
-  <div class="custom-loader">
-    <div class="loader-inner"></div>
-    <div class="icon-wrapper">
-      <span class="material-symbols-outlined">eco</span>
+    <div className="loader-container">
+  <div className="custom-loader">
+    <div className="loader-inner"></div>
+    <div className="icon-wrapper">
+      <span className="material-symbols-outlined">eco</span>
     </div>
   </div>
   <p className='loader_text'>NoteFlect Loading
-  <div class="customloader"></div>
+  <div className="customloader"></div>
   </p>
 </div>
 

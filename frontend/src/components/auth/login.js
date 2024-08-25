@@ -137,8 +137,7 @@ export default function Login() {
       >
         <div className="row">
           <div
-            className="col-md-6 left-panel text-white"
-            style={{ backgroundColor: "#178fff" }}
+            className="col-md-6 left-panel text-white login_register_left_panel"
           >
             <div className="m-5 resigters" style={{padding:'50px'}}>
               <div>

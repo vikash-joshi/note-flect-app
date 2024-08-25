@@ -1,0 +1,142 @@
+.landing-container {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color: #f9f9f9;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.hero-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.get-now-button {
+  background-color: #178fff;
+  color: #fff;
+}
+
+.features-button {
+  background-color: #fff;
+  border: 1px solid #178fff;
+  color: #178fff;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wave-container svg {
+  width: 100%;
+  display: block;
+  margin-bottom: -1px;
+}
+
+.why-section {
+  background-color: #fff;
+  padding: 50px;
+}
+
+.why-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #178fff;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #178fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(50% - 20px);
+  margin-bottom: 20px;
+}
+
+.card-header {
+  background-color: #178fff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card-body {
+  padding: 20px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.cta-section {
+  background-color: #178fff;
+  padding: 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.cta-content h4 {
+  margin-bottom: 10px;
+}
+
+.cta-content p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons button {
+    margin-bottom: 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}

@@ -175,8 +175,8 @@ export default function Register() {
       >
         <div className="row">
           <div
-            className="col-md-6 left-panel text-white"
-            style={{ backgroundColor: "#178fff" ,height:'450x'}}
+            className="col-md-6 text-white  login_register_left_panel"
+            style={{ height:'450x'}}
           >
             <div className="m-5 resigters" style={{ padding: "50px" }}>
               <div>

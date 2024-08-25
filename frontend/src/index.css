@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+ 
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,11 +17,56 @@ code {
 }
 
 .btn-primary{
-  background-color: #178fff;
+  background-color: #178fff !important
 }
 
 .text-primary{
   color:#178fff
 }
 
+
+.jumbo_home{
+  position: relative;
+    top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home_img{
+  mix-blend-mode: multiply;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+
+
+.login_register_left_panel{
+  background: linear-gradient(270deg, #178fff, #72b4f1);
+  background-size: 400% 400%;
+
+  -webkit-animation: Left_Side 30s ease infinite;
+  -moz-animation: Left_Side 30s ease infinite;
+  animation: Left_Side 30s ease infinite;
+}
+
+@-webkit-keyframes Left_Side {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@-moz-keyframes Left_Side {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes Left_Side {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 

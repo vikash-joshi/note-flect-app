@@ -8,15 +8,25 @@ export default function About() {
     <div className="container">
       <div className="row homecontent mt-4">
         <div className="col-md-5">
-          <div className="jumbotron jumbotron_additon">
-            <h3 className="display-4">Welcome To NoteFlect</h3>
-            <p>I am a software engineer, and I developed NoteFlect — a simple yet powerful notes-taking application designed to streamline your productivity.</p>
-            <hr />
-            <p>Whether you’re managing your tasks, jotting down ideas, or organizing important information, NoteFlect helps you keep everything in one place.</p>
-            <hr />
-            <p>As a full-stack engineer, I aimed to build a clean, intuitive interface that simplifies note-taking, whether you're at home, work, or on the go.
+          <div className="jumbotron jumbotron_additon text-black">
+            
+            <h3 className="display-4" style={{fontSize:'49px'}}>Welcome To NoteFlect
+              {/*<Typing text="Welcome To NoteFlect"><span></span></Typing>*/}
+              </h3>
+            <p data-aos-delay="350"   data-aos-anchor-placement="top-bottom" data-aos="zoom-in">I am a software engineer, and I developed NoteFlect — a simple yet powerful notes-taking application designed to streamline your productivity.</p>
+            <hr data-aos-delay="350"   data-aos-anchor-placement="top-bottom" data-aos="zoom-in" />
+            <p  data-aos-delay="500" data-aos="zoom-in">Whether you’re managing your tasks, jotting down ideas, or organizing important information, NoteFlect helps you keep everything in one place.</p>
+            <hr data-aos-delay="600" data-aos="zoom-in" />
+            <p  data-aos-delay="700" data-aos="zoom-in">As a full-stack engineer, I aimed to build a clean, intuitive interface that simplifies note-taking, whether you're at home, work, or on the go.
             </p>
-
+            <hr data-aos-delay="800" data-aos="zoom-in" />
+            <p  data-aos-delay="900" data-aos="zoom-in">Connect with Me: Feel free to explore my professional profiles to learn more about my work and projects:
+            </p>
+            <ul data-aos-delay="1000" data-aos="zoom-in">
+              <li>GitHub</li>
+              <li>LinkedIn</li>
+            </ul>
+            <p data-aos-delay="1100" data-aos="zoom-in">Thank you for visiting NoteFlect. I hope you find it as useful and intuitive as I intended it to be!</p>
             <Link className="btn btn-primary btn-lg" to="/Login" role="button">Get Started</Link>
           </div>
 
@@ -28,7 +38,8 @@ export default function About() {
 
       </div>  
       </div>
-      <div className="container-fluid p-5 Quotes mt-5 text-white">
+
+      <div className="container-fluid p-5 login_register_left_panel mt-5 text-white">
 <blockquote className="blockquote">
   <p className="mb-0"><b>Noteflect</b>:
 Illuminate Your Ideas with Clarity.
@@ -38,9 +49,9 @@ Empower Your Growth with Every Note.</p>
 </blockquote>
       </div>
          <div style={{padding:'60px',background:'#eef3ff',marginTop:'35px'}} className="container-fluid text-center">
-        <h2 className="fw-bold mb-4">Features</h2>
+        <h2 className="fw-bold text-primary mb-4">Features</h2>
         <div className="row justify-content-center">
-          <div className="col-lg-3 col-md-6 mb-4">
+          <div className="col-lg-4 col-12 mb-4">
             <div className="card_ shadow-sm p-3">
               <div className="circle-icon bg-dark mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 checklist
@@ -50,8 +61,8 @@ Empower Your Growth with Every Note.</p>
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4">
+            <div className="card_ shadow-sm p-3">
               <div className="circle-icon bg-primary mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 colors
               </span></div>
@@ -60,8 +71,8 @@ Empower Your Growth with Every Note.</p>
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4">
+            <div className="card_ shadow-sm p-3">
               <div className="circle-icon bg-success mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 mic
               </span></div>
@@ -70,8 +81,8 @@ Empower Your Growth with Every Note.</p>
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4">
+            <div className="card_ shadow-sm p-3">
               <div className="circle-icon bg-danger mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 lock_person
               </span></div>
@@ -82,8 +93,8 @@ Empower Your Growth with Every Note.</p>
           </div>
 
 
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4">
+            <div className="card_ shadow-sm p-3">
               <div style={{ background: 'blueviolet' }} className="circle-icon mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 bug_report
               </span></div>
@@ -93,8 +104,8 @@ Empower Your Growth with Every Note.</p>
             </div>
           </div>
 
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4">
+            <div className="card_ shadow-sm p-3">
               <div style={{ background: 'cadetblue' }} className="circle-icon  mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 mail
               </span></div>
@@ -103,8 +114,8 @@ Empower Your Growth with Every Note.</p>
 
             </div>
           </div>
-          <div className="col-lg-3 col-md-6 mb-4">
-            <div className="card shadow-sm p-3">
+          <div className="col-lg-4 col-12 mb-4 d-none">
+            <div className="card_ shadow-sm p-3">
               <div style={{ background: '#9fc1f4' }} className="circle-icon mx-auto mb-3 d-flex justify-content-center align-items-center "><span className="about_us_icon material-symbols-outlined">
                 Notifications_active
               </span></div>

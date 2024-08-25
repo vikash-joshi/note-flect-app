@@ -72,6 +72,10 @@ font-family: Helvetica Now MT Text, Helvetica, Arial, sans-serif;
   }
 }
 
+
+.card_{
+  width: auto !important;
+}
 /*
 .circle-icon {
   width: 50px;
