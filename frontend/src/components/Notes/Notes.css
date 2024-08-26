@@ -17,6 +17,7 @@
 
 .note-content {
     font-size: 14px;
+    color: black !important;
 }
 
 .card_{
@@ -27,7 +28,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .note-width {
-    width: 100%;
+    width: 100% !important;
+    background-color: #fff !important;
 }
 
 .card-icon{
@@ -198,4 +200,74 @@
     height: 14px;
     margin-bottom: 10px;
 }
+
+
+
+.note-card-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .note-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .note-card-header {
+    background-color: #178fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .category-title {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .note-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .note-options button {
+    background-color: #fff;
+    color: #178fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .note-options button:hover {
+    background-color: #178fff;
+    color: #fff;
+    border-color: #fff;
+  }
+  
+  .note-card-content {
+    padding: 15px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    .note-card {
+      max-width: 100%;
+    }
+  }
+  
+
 
