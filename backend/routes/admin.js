@@ -8,7 +8,7 @@ var router = express.Router();
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 var { GeneratePassword,RandomPassword } = require("../common/password");
-const authenticateToken = require("../middleware/fetchuser");
+const  {authenticateToken} = require("../middleware/fetchuser");
 const { SaveEmailLog, GetEmailLogs } = require("../common/MailMethods");
 
 router.get("/getUsers", authenticateToken, async (req, res) => {

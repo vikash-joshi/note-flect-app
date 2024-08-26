@@ -1,5 +1,5 @@
 var express = require('express');
-const authenticateToken = require('../middleware/fetchuser');
+const {authenticateToken} = require('../middleware/fetchuser');
 var router = express.Router();
 const {
     body,

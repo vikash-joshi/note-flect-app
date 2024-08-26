@@ -1,4 +1,6 @@
 const EmailLog  = require("../models/EmailLog");
+
+
 const SaveEmailLog=async(MailModel)=>{
     try
     {
