@@ -37,6 +37,9 @@ const UserSchema=new Schema({
     },
     IsAccountLocked:{
         type:Boolean
+    },
+    TwoFactorAuth:{
+        type:Boolean
     }
     
 });
