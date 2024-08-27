@@ -220,9 +220,10 @@ export default function Register() {
                   }}
                 >
                   <div className="form-group row mb-1 ">
-                    <label
+                  <label for="input3" class="col-sm-1 col-form-label"></label>
+                   <label
                       htmlFor="input3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                     >
                       <span className="material-symbols-outlined" style={{    color: '#178fff',    fontSize: '31px'}}>
 person
@@ -249,9 +250,9 @@ person
                     </div>
                   </div>
                   <div className="form-group row  mb-1">
-                    <label
+                  <label for="input3" class="col-sm-1 col-form-label"></label><label
                       htmlFor="inputEmail3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                     >
                       <span className="material-symbols-outlined" style={{     color: '#178fff',  fontSize: '31px'}}>
 mail
@@ -278,9 +279,9 @@ mail
                     </div>
                   </div>
                   <div className="form-group row mb-1">
-                    <label
+                  <label for="input3" class="col-sm-1 col-form-label"></label> <label
                       htmlFor="inputEmail3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                     >
       <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 wc
@@ -300,9 +301,9 @@ wc
                     </div>
                   </div>
                   <div className="form-group mb-0  row">
-                    <label
+                  <label for="input3" class="col-sm-1 col-form-label"></label> <label
                       htmlFor="inputPassword3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                       
                     >
                       <span className="material-symbols-outlined" style={{     color: '#178fff',   fontSize: '31px'}}>
@@ -327,7 +328,7 @@ lock
                         {EyeIcon}
                       </span>
                     </div>
-                    <div className="col-sm-2"></div>
+                    <div className="col-sm-1"></div>
                     <div className="col-sm-10 mt-2">
                       {errors.email && (
                         <p className="text-danger" style={{    color: '#178fff',fontSize: "10px" }}>

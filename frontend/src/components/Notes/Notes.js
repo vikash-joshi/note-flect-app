@@ -194,7 +194,7 @@ export default function Notes() {
     });
   };
   const HandleHideShow = () => {
-    debugger;
+    ;
     setFormOrList(!Form_Or_List);
     if (Form_Or_List) {
       clearNote();
@@ -213,6 +213,7 @@ export default function Notes() {
 
 
   const fetchallNotes = async (PageNo) => {
+    SetLoading(true);
     let Response = await FetchAllNotes(PageNo);
     if (Response && Response?.logout == true) {
       logout();
@@ -333,18 +334,18 @@ export default function Notes() {
                     NotesList?.map((note) => (
                       <div className="col-md-6">
                         <NoteCard note={note} OnEvent={Handle_Edit_Delete} /> 
-                        <div class="notes d-none ">
-                          <div class="note-item">
-                            <div class="lazur-bg">
+                        <div className="notes d-none ">
+                          <div className="note-item">
+                            <div className="lazur-bg">
                               <span className="header_note">   <span className="badge bg-primary">{note.category}</span>
                                 <a>
-                                  <i onClick={() => Handle_Edit_Delete("Update", note)} class="text-primary material-symbols-outlined">edit</i><i
-                                    onClick={() => Handle_Edit_Delete("Delete", note)} class=" text-danger material-symbols-outlined">close</i>
+                                  <i onClick={() => Handle_Edit_Delete("Update", note)} className="text-primary material-symbols-outlined">edit</i><i
+                                    onClick={() => Handle_Edit_Delete("Delete", note)} className=" text-danger material-symbols-outlined">close</i>
                                 </a>
                               </span>
                               <h4>{note.title}</h4>
                               <p className="content_bodys" dangerouslySetInnerHTML={{ __html: note.content }}></p>
-                              <i class="footer"><span class="material-symbols-outlined">
+                              <i className="footer"><span className="material-symbols-outlined">
                                 calendar_month
                               </span> &nbsp; {formatDistanceToNow(note.createdAt, {
                                 addSuffix: true

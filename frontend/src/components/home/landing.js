@@ -1,5 +1,6 @@
 import React from 'react';
 import './landing.css'; // Create a CSS file for custom styling
+import { Link } from 'react-router-dom';
 //fimport Typing from 'react-typing-effeçt'
 function LandingPage() {
   return (
@@ -11,8 +12,10 @@ function LandingPage() {
           We built NoteFlect to help you create, organize, and reflect on your ideas with ease. Whether you're jotting down quick thoughts, compiling research, or reflecting on your day, NoteFlect is your go-to tool.
         </p>
         <div className="hero-buttons">
-          <button className="get-now-button">Get it Now</button>
-          <button className="features-button">Features</button>
+        <Link to="/Register">
+          <button className="get-now-button bg-white text-primary">Get Started</button>
+          </Link>
+          <button className="features-button" ><a style={{textDecoration:'none'}} href="#Features">Features</a></button>
         </div>
       </div>
       <div className="hero-image">
@@ -24,7 +27,7 @@ function LandingPage() {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#178fff" fill-opacity="1" d="M0,64L15,53.3C30,43,60,21,90,10.7C120,0,150,0,180,21.3C210,43,240,85,270,117.3C300,149,330,171,360,165.3C390,160,420,128,450,128C480,128,510,160,540,154.7C570,149,600,107,630,112C660,117,690,171,720,208C750,245,780,267,810,261.3C840,256,870,224,900,202.7C930,181,960,171,990,149.3C1020,128,1050,96,1080,90.7C1110,85,1140,107,1170,138.7C1200,171,1230,213,1260,234.7C1290,256,1320,256,1350,213.3C1380,171,1410,85,1425,42.7L1440,0L1440,0L1425,0C1410,0,1380,0,1350,0C1320,0,1290,0,1260,0C1230,0,1200,0,1170,0C1140,0,1110,0,1080,0C1050,0,1020,0,990,0C960,0,930,0,900,0C870,0,840,0,810,0C780,0,750,0,720,0C690,0,660,0,630,0C600,0,570,0,540,0C510,0,480,0,450,0C420,0,390,0,360,0C330,0,300,0,270,0C240,0,210,0,180,0C150,0,120,0,90,0C60,0,30,0,15,0L0,0Z"></path></svg>
     </div>
   
-    <div className="why-section">
+    <div className="why-section" id="Features">
       <h2>Why NoteFlect?</h2>
       <div className="card-container">
         <div className="card">

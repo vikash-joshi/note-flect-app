@@ -57,9 +57,7 @@ export default function VerifiedNavbar(props) {
           { user  && user?.name && user?.name}
           </a>
           <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><Link className={`${_location.pathname == "/ChangePassword" ? "active" : ""} dropdown-item`} to="/ChangePassword">Change Password</Link></li>
-            
-            <li onClick={_logout}><a className="dropdown-item" href="#">Logout</a></li>
+           <li onClick={_logout}><a className="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
         

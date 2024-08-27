@@ -65,7 +65,7 @@ export default function Login() {
   
   const FetchRequtes=async()=>{
     try {
-      debugger;
+      ;
       SetLoading(true)
       const response = await fetch(process.env.REACT_APP_API_URL+'/api/auth/verifytoken', {
         method: "GET",credentials:'include',
@@ -164,7 +164,7 @@ export default function Login() {
             </div>
           </div>
           <div className="col-md-6 bg-white right-panel">
-            <div style={{ padding: "30px" }}>
+            <div style={{ padding: "55px" }}>
               <div>
                 <h3 className="text-center">Login</h3>
               </div>
@@ -181,9 +181,9 @@ export default function Login() {
                   }}
                 >
                   <div className="form-group row mb-2">
-                    <label
+                  <label for="input3" class="col-sm-1 col-form-label"></label> <label
                       htmlFor="inputEmail3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                     >
                       <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 mail
@@ -202,9 +202,9 @@ mail
                   <div className="form-group mb-2 row" style={{    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'}}>
-                    <label
+                     <label for="input3" class="col-sm-1 col-form-label"></label> <label
                       htmlFor="inputPassword3"
-                      className="col-sm-2 col-form-label"
+                      className="col-sm-1 col-form-label"
                     >
        <span className="material-symbols-outlined" style={{    color: '#178fff',   fontSize: '31px'}}>
 lock

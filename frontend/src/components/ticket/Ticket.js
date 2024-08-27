@@ -324,7 +324,7 @@ const HandlePrev=()=>{
 
 
   const fetchData = async () => {
-    debugger;
+    ;
     SetLoading(true);
     if (isAuthenticated) {
       let Res = await GetAllRequest(PageNo);

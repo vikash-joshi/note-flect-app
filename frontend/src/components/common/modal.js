@@ -11,7 +11,7 @@ const ModalComponent = ({ isOpen, onClose , Modal }) => {
           <div className="bg-primary d-flex justify-content-between modal-header p-4 text-white" style={{height:'0px'}}>
             <h5 className="modal-title" id="exampleModalLabel">{Modal?.Title}</h5>
             <button type="button" className="btn text-end text-white" onClick={onClose}>
-            <span class="material-symbols-outlined" style={{fontSize:'26px'}}>
+            <span className="material-symbols-outlined" style={{fontSize:'26px'}}>
 close
 </span>
             </button>
